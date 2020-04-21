@@ -20,13 +20,13 @@ import { blacklist as staticDataBlacklist } from './config/static-data';
  ** The NODE_ENV will always be equal to 'production' when we generate
  ** the website. Thus, we don't have a dev/production env variable
  ** for the preproduction environnement.
- ** The NETLIFY_ENV variable allow us to set a dev/production variable
+ ** The STATE_ENV variable allow us to set a dev/production variable
  ** totaly decorrelated from the NODE_ENV variable.
- ** SEE: https://www.netlify.com/docs/continuous-deployment/#environment-variables
+ ** SEE: https://vercel.com/docs/v2/build-step#environment-variables
  */
-const netlifyEnv = process.env.NODE_ENV;
-const isDevEnv = netlifyEnv === 'development';
-const isProdEnv = netlifyEnv === 'production';
+const stateEnv = process.env.NODE_ENV;
+const isDevEnv = stateEnv === 'development';
+const isProdEnv = stateEnv === 'production';
 const websiteUrl = process.env.URL || `http://${process.env.HOST}:${process.env.PORT}`;
 
 export default {
@@ -248,7 +248,7 @@ export default {
         [
             '@nuxtjs/robots',
             robotsOptions({
-                env: netlifyEnv,
+                env: stateEnv,
                 url: websiteUrl
             })
         ]
