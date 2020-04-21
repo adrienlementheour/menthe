@@ -11,8 +11,8 @@ export const locales = [{ code: 'en', iso: 'en_US' }];
 // 🚦 Specific routes
 // NOTE: You can use isProdEnv to set conditionnal routes (not showing on prod for example)
 export const getPagesList = (isProdEnv = process.env.isProdEnv) => ({
-    [routes.dynamicListPage.i18nFormat]: {
+    [routes.journalPage.i18nFormat]: {
         // Conditionnal route example
-        fr: !isProdEnv ? '/dynamic' : false
+        en: !isProdEnv ? '/journal' : false
     }
 });

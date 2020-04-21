@@ -12,6 +12,8 @@ const routeResolver = ({ dynamicRootPageName, localeCode, routeData }) => {
     // The page's _modelApiKey and slug will determine the way to resolve the page
     const { _modelApiKey, slug } = routeData;
 
+    if (!_modelApiKey || !slug) return;
+
     // Getting the i18n config from the _modelApiKey
     // console.log(routeByApiModels[_modelApiKey]);
     const i18nPageConfig = getPagesList()[routeByApiModels[_modelApiKey].i18nFormat];
@@ -48,9 +50,6 @@ const routeResolver = ({ dynamicRootPageName, localeCode, routeData }) => {
 };
 
 export default async ({ generator, routes, options }) => {
-    // eslint-disable-next-line
-    if (!options.query) logger.error(new Error("Crawler module: No query found in crawler module's options."));
-
     const pagesDirPath = join(__dirname, '../../pages');
 
     // The pre-existing routes list (before extending routes)
@@ -141,10 +140,12 @@ export default async ({ generator, routes, options }) => {
     };
 
     // Starting to resolve routes depending on all the locales
-    logger.info('Generating extended pages');
-    await runPromisesSequence({
-        array: locales,
-        handler: localesHandler,
-        delay: 5
-    });
+    if (!options.query) {
+        logger.info('Generating extended pages');
+        await runPromisesSequence({
+            array: locales,
+            handler: localesHandler,
+            delay: 5
+        });
+    }
 };

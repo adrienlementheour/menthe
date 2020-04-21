@@ -5,7 +5,7 @@ import getAllSlugsQuery from '~/cms/queries/getAllSlugsQuery';
 import errorPageQuery from '~/cms/queries/errorPageQuery';
 import homePageQuery from '~/cms/queries/homePageQuery';
 
-import dynamicListPageQuery from '~/cms/queries/dynamicListPageQuery';
+import journalPageQuery from '~/cms/queries/journalPageQuery';
 
 import apolloClient from '~/config/apollo';
 
@@ -136,16 +136,16 @@ export const getHome = async ({ app, store }) => {
     return Object.freeze(homePage);
 };
 
-export const getDynamicList = async ({ app, store }) => {
+export const getJournalPage = async ({ app, store }) => {
     // ~/pages/dynamic/index graphql query call
-    // SEE: ~/cms/queries/dynamicListPageQuery
-    const { dynamicListPage } = await makeQuery({
+    // SEE: ~/cms/queries/journalPageQuery
+    const { journalPage } = await makeQuery({
         app,
-        query: dynamicListPageQuery,
+        query: journalPageQuery,
         store
     });
 
-    return Object.freeze(dynamicListPage);
+    return Object.freeze(journalPage);
 };
 
 // Error

@@ -36,6 +36,9 @@ module.exports = function(moduleOptions) {
             .query({ query: options.query })
             .then(({ data }) => getRedirectionsStringsArray(data));
 
+        // Early return if there's not redirections
+        if (!redirectionsList) return;
+
         this.nuxt.hook('generate:done', async () => {
             const redirectionsStringified = redirectionsList.reduce(
                 (acc, currentRedirect) => `${acc}\n${currentRedirect}`,

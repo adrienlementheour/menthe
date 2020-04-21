@@ -8,7 +8,7 @@ import robotsOptions from './config/robots';
 
 import { excludedStaticRoutes } from './assets/js/constants/routes';
 import { defaultLocale, locales, getPagesList } from './config/i18n';
-import frTranslation from './locales/fr.json';
+import enTranslation from './locales/en.json';
 
 import { layoutDataQuery, globalSeoQuery } from './config/layout-data';
 import crawlerQuery from './config/crawler';
@@ -175,6 +175,7 @@ export default {
     buildModules: ['~/modules/crawler-module', '~/modules/redirections-module', '~/modules/static-data-module'],
     /*
      ** Crawler configuration
+     ** NOTE: No need for crawler query if you don't have dynamic pages
      */
     crawler: {
         /**
@@ -232,7 +233,7 @@ export default {
                 vueI18n: {
                     fallbackLocale: defaultLocale,
                     messages: {
-                        fr: frTranslation || {}
+                        fr: enTranslation || {}
                     }
                 },
                 vuex: {

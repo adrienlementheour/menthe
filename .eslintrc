@@ -23,7 +23,7 @@
         "no-console": "off",
         "no-unused-vars": "warn",
         "no-useless-escape": "off",
-        "quotes": ["error", "single"],
+        "quotes": ["error", "single", "avoid-escape"],
         "object-curly-spacing": ["error", "always"],
         "array-bracket-spacing": ["error", "never"],
         "arrow-parens": ["error", "as-needed"],
