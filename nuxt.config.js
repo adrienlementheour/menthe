@@ -27,7 +27,7 @@ import { blacklist as staticDataBlacklist } from './config/static-data';
 const stateEnv = process.env.NODE_ENV;
 const isDevEnv = stateEnv === 'development';
 const isProdEnv = stateEnv === 'production';
-const websiteUrl = process.env.URL || `http://${process.env.HOST}:${process.env.PORT}`;
+const websiteUrl = process.env.NOW_URL || `http://${process.env.HOST}:${process.env.PORT}`;
 
 export default {
     mode: 'universal',
