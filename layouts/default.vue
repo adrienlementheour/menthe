@@ -25,8 +25,8 @@ export default {
     data: () => ({
         isDevEnv: process.env.isDevEnv,
         columnsData: {
-            xl: 6,
-            s: 4,
+            xl: 9,
+            s: 5,
             xs: 3
         }
     }),

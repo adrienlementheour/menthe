@@ -4,9 +4,7 @@ import getAllSlugsQuery from '~/cms/queries/getAllSlugsQuery';
 
 import errorPageQuery from '~/cms/queries/errorPageQuery';
 import homePageQuery from '~/cms/queries/homePageQuery';
-import basicPageQuery from '~/cms/queries/basicPageQuery';
 
-import dynamicSinglePageQuery from '~/cms/queries/dynamicSinglePageQuery';
 import dynamicListPageQuery from '~/cms/queries/dynamicListPageQuery';
 
 import apolloClient from '~/config/apollo';
@@ -136,46 +134,6 @@ export const getHome = async ({ app, store }) => {
     const { homePage } = await makeQuery({ app, query: homePageQuery, store });
 
     return Object.freeze(homePage);
-};
-
-// Basic page
-export const getBasicPage = async ({ app, slug, store }) => {
-    // ~/pages/_slug graphql query call
-    // SEE: ~/cms/queries/basicPageQuery
-    const { basicPage } = await makeQuery({
-        app,
-        query: basicPageQuery,
-        slug,
-        store
-    });
-
-    if (basicPage) {
-        // NOTE: ⚠️ Do not forget to call storeSlugs to translate pages slugs
-        await storeSlugs({ app, pageContent: basicPage, store });
-    }
-
-    return Object.freeze(basicPage);
-};
-
-// Dynamic
-export const getDynamicSingle = async ({ app, routePath, store }) => {
-    const slug = getSlug({ app, routePath });
-
-    // ~/pages/dynamic/_dynamic graphql query call
-    // SEE: ~/cms/queries/dynamicSinglePageQuery
-    const { dynamicSinglePage } = await makeQuery({
-        app,
-        query: dynamicSinglePageQuery,
-        slug,
-        store
-    });
-
-    if (dynamicSinglePage) {
-        // NOTE: ⚠️ Do not forget to call storeSlugs to translate pages slugs
-        await storeSlugs({ app, pageContent: dynamicSinglePage, store });
-    }
-
-    return Object.freeze(dynamicSinglePage);
 };
 
 export const getDynamicList = async ({ app, store }) => {

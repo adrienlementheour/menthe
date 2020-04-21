@@ -5,11 +5,6 @@ export default `
         isExternal
         externalLink
         isInternal
-        internalLink {
-            ... on BasicPageRecord {
-                slug
-                _modelApiKey
-            }
-        }
+        internalLink
     }
 `;

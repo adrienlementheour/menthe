@@ -13,6 +13,7 @@ const routeResolver = ({ dynamicRootPageName, localeCode, routeData }) => {
     const { _modelApiKey, slug } = routeData;
 
     // Getting the i18n config from the _modelApiKey
+    // console.log(routeByApiModels[_modelApiKey]);
     const i18nPageConfig = getPagesList()[routeByApiModels[_modelApiKey].i18nFormat];
 
     // Handling the locale in the final url

@@ -1,6 +1,6 @@
 /* Grid */
 
 .container {
-    max-width: $desktop-xxl;
+    max-width: calc(100% - 45px);
     margin: 0 auto;
 }

@@ -15,6 +15,7 @@ export default gql`
             menuLinks {
                 ...link
             }
+            title
         }
         footer(locale: $lang) {
             entityTitle
