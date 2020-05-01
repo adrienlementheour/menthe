@@ -11,7 +11,13 @@ export const layoutDataQuery = gql`
     ${linkFragment}
     query Layout($lang: SiteLocale) {
         header(locale: $lang) {
-            menuLinks {
+            title
+            columnOne
+            columnOneLink {
+                ...link
+            }
+            columnTwo
+            columnTwoLink {
                 ...link
             }
         }
