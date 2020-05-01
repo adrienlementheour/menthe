@@ -1,5 +1,4 @@
 import { routes, routeByApiModels } from '../constants/routes';
-
 const cmsLinkResolver = ({
     data: { linkLabel, linkTitle, isExternal, externalLink, isInternal, internalLink },
     localePath
@@ -8,17 +7,22 @@ const cmsLinkResolver = ({
         return {
             ariaLabel: linkTitle,
             url: externalLink,
-            text: linkLabel
+            text: linkLabel,
+            type: 'external'
         };
     } else if (isInternal && internalLink) {
         const { _modelApiKey, slug } = internalLink;
-        const params = slug ? { slug } : {};
-        const url = localePath({ name: routeByApiModels[_modelApiKey].routerFormat, params });
-
+        const { routerFormat } = routeByApiModels[_modelApiKey];
+        const params = slug ? { [routerFormat.split('-').pop()]: slug } : {};
+        const url = localePath({
+            name: routerFormat,
+            params
+        });
         return {
             ariaLabel: linkTitle,
             url,
-            text: linkLabel
+            text: linkLabel,
+            type: 'internal'
         };
     } else {
         // If no toggle selected
@@ -33,7 +37,6 @@ const cmsLinkResolver = ({
                 `The link named "${linkLabel}" encountered an issue with the cmsLinkResolver method. There is some chance that you selected the option "isExternal" and did not fill the "externalLink" field.`
             );
         }
-
         // If no internal link
         if (isInternal && !internalLink) {
             console.warn(
@@ -43,16 +46,18 @@ const cmsLinkResolver = ({
         return null;
     }
 };
-
-const internalLinkResolver = ({ data: { ariaLabel, name }, localePath }) => {
-    const url = localePath(routes[name].routerFormat);
+const internalLinkResolver = ({ data: { ariaLabel, name, slug }, localePath }) => {
+    const { routerFormat } = routes[name];
+    const params = slug ? { [routerFormat.split('-').pop()]: slug } : {};
+    const url = localePath({
+        name: routerFormat,
+        params
+    });
     return { ariaLabel: ariaLabel, url };
 };
-
 const externalLinkResolver = ({ ariaLabel, url }) => {
     return { ariaLabel: ariaLabel, url };
 };
-
 export const resolveLinkData = ({ link: { data, type }, localePath }) => {
     switch (type) {
         case 'from-cms':
