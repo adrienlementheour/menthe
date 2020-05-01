@@ -1,6 +1,16 @@
 /* Grid */
 
 .container {
-    max-width: calc(100% - 45px);
+    max-width: calc(100% - 20px);
     margin: 0 auto;
+}
+.full-content {
+    padding-left: $small-gutter;
+    padding-right: $small-gutter;
+}
+
+@media (min-width: $tablet){
+    .container {
+        max-width: calc(100% - 45px);
+    }
 }

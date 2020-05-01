@@ -5,6 +5,7 @@ export const colors = {
 };
 
 // 📐 Layout
+export const smallGutter = 10;
 export const gutter = 25;
 export const lineHeight = 24;
 export const headerHeight = 88;

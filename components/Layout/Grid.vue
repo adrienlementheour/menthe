@@ -14,7 +14,7 @@ export default {
         columnsData: { type: Object, required: true }
     },
     data: () => ({
-        isActive: true,
+        isActive: false,
         columnsNumber: 0
     }),
     computed: {
@@ -77,7 +77,7 @@ export default {
 
 .column-block {
     width: 100%;
-    padding: 0 $gutter;
+    padding: 0 $small-gutter;
     border-left: 1px solid $black;
     &:last-child {
         border-right: 1px solid $black;
@@ -90,6 +90,12 @@ export default {
     border-left: 1px solid $black;
     &:last-child {
         border-right: 1px solid $black;
+    }
+}
+
+@media (min-width: $tablet) {
+    .column-block {
+        padding: 0 $gutter;
     }
 }
 </style>

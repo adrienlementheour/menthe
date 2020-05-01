@@ -27,7 +27,7 @@ export default {
         columnsData: {
             xl: 9,
             s: 5,
-            xs: 3
+            xs: 2
         }
     }),
     mounted() {
