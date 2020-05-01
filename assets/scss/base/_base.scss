@@ -17,17 +17,18 @@ html {
     height: 100%;
     /* sets the base font to 10px for easier math */
     font-size: 62.5%;
-    background: $white;
+    background: var(--primary);
 }
 
 body {
     height: 100%;
-    color: $black;
-    font: #{$text-size-mobile * 0.1}em / 1.5 $sans-serif-font;
+    color: var(--secondary);
+    font-family: $agrandir;
+    font-size: 1.4em;
+    font-variation-settings: 'wght' 200, 'wdth' 100;
     font-kerning: normal;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-weight: normal;
+    line-height: $line-height;
     overflow-x: hidden;
 }
 
@@ -35,7 +36,6 @@ body {
 .wysiwyg h2,
 .h1,
 .h2 {
-    font-family: $serif-font;
     font-weight: 400;
 }
 
@@ -146,23 +146,5 @@ a {
     @extend %outline;
     &:active {
         filter: saturate(200%);
-    }
-}
-
-@media (min-width: $phone) {
-    body {
-        font-size: #{$text-size-desktop * 0.1}rem;
-    }
-    .wysiwyg h1,
-    .h1 {
-        font-size: 4rem;
-    }
-    .wysiwyg h2,
-    .h2 {
-        font-size: 3.2rem;
-    }
-    .wysiwyg h3,
-    .h3 {
-        font-size: 2.1rem;
     }
 }

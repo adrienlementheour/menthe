@@ -3,6 +3,7 @@ import Vue from 'vue';
 import { useSacVue, useSuperWindowVue, useSuperScrollVue, useSuperDOMVue } from '@stereorepo/sac';
 
 import Icon from '~/components/Miscellaneous/Icon';
+import Routing from '~/components/Routing';
 
 Vue.prototype.$stereosuper = {
     ...Vue.prototype.$stereosuper,
@@ -21,3 +22,4 @@ Vue.use(useSuperDOMVue);
 
 // Set Vue.component here
 Vue.component('Icon', Icon);
+Vue.component('Routing', Routing);

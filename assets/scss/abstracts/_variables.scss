@@ -1,19 +1,24 @@
 // Variables 🧮 //
 
 // Colors 🎨
-$black: #000;
+$black: #242424;
 $white: #fff;
 
+:root {
+    --primary: #E1DDE4;
+    --secondary: #242424;
+    --tertiary: #2421EC;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #242424;
+        --secondary: #D8CEE1;
+        --tertiary: #FFFFFF;
+    }
+}
+
 // Fonts ✍
-// serif
-$serif-font: serif;
-
-// sans
-$sans-serif-font: sans-serif;
-
-// Texts variables 🖌
-$text-size-mobile: 13;
-$text-size-desktop: 15;
+$agrandir: 'agrandir', sans-serif;
 
 // Components sizes 📏
 $header-height: 88px;
@@ -21,7 +26,7 @@ $header-logo-height: 28px;
 
 // Grids variables 📐
 $gutter: 25px; // Space between columns = 70px
-$small-gutter: 15px;
+$small-gutter: 10px;
 $line-height: 24px;
 
 // Mediaqueries 📱
