@@ -3,6 +3,9 @@
         <div class="header-title">
             {{ headerData.title }}
         </div>
+        <div class="wrapper-mode">
+            <button type="button" class="btn-mode" />
+        </div>
         <div class="column one">
             {{ headerData.columnOne }}
             <Routing :link="{ data: headerData.columnOneLink, type: 'from-cms' }" />
@@ -29,18 +32,36 @@ export default {
 <style lang="scss" scoped>
 .main-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding-top: #{2 * $line-height};
     padding-bottom: #{2 * $line-height};
 }
 .header-title {
-    padding-right: 50px;
+    flex: 0 0 auto;
+    width: calc(100% - 50px);
     font-size: 1.5rem;
     font-variation-settings: 'wght' 600, 'wdth' 100;
 }
+.wrapper-mode {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    width: 50px;
+}
 .column {
+    flex: 0 0 auto;
+    width: 100%;
     margin-top: $line-height;
     font-size: 1.6rem;
     font-variation-settings: 'wght' 200, 'wdth' 150;
+}
+.btn-mode {
+    display: block;
+    width: $line-height;
+    height: $line-height;
+    border-radius: 50%;
+    border: 0;
+    background: var(--secondary);
 }
 </style>
