@@ -117,6 +117,7 @@ export default {
     }
     .finding {
         display: flex;
+        align-items: baseline;
         > div {
             flex: 0 0 auto;
         }

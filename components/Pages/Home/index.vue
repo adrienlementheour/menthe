@@ -136,6 +136,7 @@ export default {
     .wrapper-clients-stack {
         flex-direction: row;
         justify-content: space-between;
+        align-items: baseline;
         padding-left: 0;
         padding-right: 0;
     }
