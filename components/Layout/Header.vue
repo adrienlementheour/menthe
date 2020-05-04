@@ -6,11 +6,11 @@
         </div>
         <div class="column one">
             {{ headerData.columnOne }}
-            <Routing :link="{ data: headerData.columnOneLink, type: 'from-cms' }" />
+            <Routing class="link-arrow framed" :link="{ data: headerData.columnOneLink, type: 'from-cms' }" />
         </div>
         <div class="column two">
             {{ headerData.columnTwo }}
-            <Routing :link="{ data: headerData.columnTwoLink, type: 'from-cms' }" />
+            <Routing class="link-arrow underlined" :link="{ data: headerData.columnTwoLink, type: 'from-cms' }" />
         </div>
     </header>
 </template>

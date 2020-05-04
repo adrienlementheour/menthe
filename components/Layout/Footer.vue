@@ -7,7 +7,7 @@
                 <Routing
                     v-for="link in footerData.socialLinks"
                     :key="link.id"
-                    class="social-link"
+                    class="link-arrow social-link"
                     :link="{ data: link, type: 'from-cms' }"
                 />
             </div>
