@@ -60,6 +60,10 @@ export default {
     }
 }
 
+.wrapper-clients-stack {
+    display: flex;
+    flex-direction: column;
+}
 .wrapper-presentation {
     margin-bottom: 3 * $line-height;
 }
@@ -129,14 +133,62 @@ export default {
         font-size: 4rem;
         line-height: 2 * $line-height;
     }
+    .wrapper-clients-stack {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .wrapper-presentation {
+        flex: 0 0 auto;
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+        &.clients {
+            width: calc(#{var(--col)} * 5);
+            .square-block {
+                width: percentage(2/3);
+                &::before {
+                    width: 100vw;
+                    left: calc(#{var(--gutter)} * -1 - 20px);
+                    right: auto;
+                }
+            }
+        }
+        &.stack {
+            width: calc(#{var(--col)} * 3);
+            .square-block {
+                &::before {
+                    content: none;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: $desktop) {
     .hero {
-        margin-top: #{8 * $line-height};
-        margin-bottom: #{8 * $line-height};
+        margin-top: #{6 * $line-height};
+        margin-bottom: #{6 * $line-height};
         font-size: 6rem;
         line-height: 3 * $line-height;
+    }
+    .square-block {
+        &::after {
+            top: -17px;
+        }
+        margin-bottom: 3 * $line-height;
+    }
+    .square-title {
+        font-size: 2.4rem;
+    }
+    .square-subtitle {
+        font-size: 1.8rem;
+    }
+    .client {
+        font-size: 2.4rem;
+    }
+    .tool {
+        font-size: 1.8rem;
     }
 }
 </style>

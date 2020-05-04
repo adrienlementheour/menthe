@@ -100,6 +100,10 @@ export default {
 }
 
 @media (min-width: $desktop) {
+    .main-header {
+        padding-top: #{4 * $line-height};
+        padding-bottom: #{4 * $line-height};
+    }
     .header-title,
     .column {
         width: calc(#{var(--col)} * 2);
