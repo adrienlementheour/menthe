@@ -45,13 +45,12 @@ $desktop-xxl-v: 1080px;
         --primary: #242424;
         --secondary: #D8CEE1;
         --tertiary: #FFFFFF;
-        --col: 100/9*1%;
     }
 }
 @media (min-width: $desktop-small) {
     :root {
         // Grids variables 📐
         --gutter: 25px;
-        --nb-cols: 2;
+        --col: 100/9*1%;
     }
 }
