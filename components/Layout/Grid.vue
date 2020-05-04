@@ -77,7 +77,7 @@ export default {
 
 .column-block {
     width: 100%;
-    padding: 0 $small-gutter;
+    padding: 0 #{var(--gutter)};
     border-left: 1px solid $black;
     &:last-child {
         border-right: 1px solid $black;
@@ -95,7 +95,7 @@ export default {
 
 @media (min-width: $tablet) {
     .column-block {
-        padding: 0 $gutter;
+        padding: 0 #{var(--gutter)};
     }
 }
 </style>

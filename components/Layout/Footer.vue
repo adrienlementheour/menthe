@@ -53,7 +53,7 @@ export default {
 .copyright,
 .social {
     flex: 0 0 auto;
-    width: calc(50% - #{$gutter});
+    width: calc(50% - #{var(--gutter)});
     margin-top: $line-height;
     /deep/ p {
         margin: 0;

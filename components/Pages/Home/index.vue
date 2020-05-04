@@ -75,15 +75,15 @@ export default {
     }
     &::before {
         top: 50%;
-        left: calc(#{-$small-gutter} - 20px);
-        right: calc(#{-$small-gutter} - 20px);
+        left: calc(#{var(--gutter)} * -1 - 20px);
+        right: calc(#{var(--gutter)} * -1 - 20px);
         border-top: 1px solid var(--tertiary);
     }
     &::after {
         top: -15px;
-        right: -$small-gutter;
+        right: calc(#{var(--gutter)} * -1);
         bottom: -10px;
-        left: -$small-gutter;
+        left: calc(#{var(--gutter)} * -1);
         border: 1px solid var(--tertiary);
         background: var(--primary);
     }
@@ -120,5 +120,14 @@ export default {
 .tool {
     font-size: 1.6rem;
     font-variation-settings: 'wght' 600, 'wdth' 100;
+}
+
+@media (min-width: $desktop) {
+    .hero {
+        margin-top: #{8 * $line-height};
+        margin-bottom: #{8 * $line-height};
+        font-size: 6rem;
+        line-height: 3 * $line-height;
+    }
 }
 </style>

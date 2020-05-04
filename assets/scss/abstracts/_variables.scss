@@ -4,19 +4,6 @@
 $black: #242424;
 $white: #fff;
 
-:root {
-    --primary: #E1DDE4;
-    --secondary: #242424;
-    --tertiary: #2421EC;
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary: #242424;
-        --secondary: #D8CEE1;
-        --tertiary: #FFFFFF;
-    }
-}
-
 // Fonts ✍
 $agrandir: 'agrandir', sans-serif;
 
@@ -25,8 +12,8 @@ $header-height: 88px;
 $header-logo-height: 28px;
 
 // Grids variables 📐
-$gutter: 25px; // Space between columns = 70px
-$small-gutter: 10px;
+// $gutter: 25px; 
+// $small-gutter: 10px;
 $line-height: 24px;
 
 // Mediaqueries 📱
@@ -43,3 +30,30 @@ $phone-small: 400px;
 $phone-small-v: 600px;
 $desktop-v: 900px;
 $desktop-xxl-v: 1080px;
+
+:root {
+    // Colors 🎨
+    --primary: #E1DDE4;
+    --secondary: #242424;
+    --tertiary: #2421EC;
+
+    // Grids variables 📐
+    --gutter: 10px; // Space between columns = 20px
+    --col: 100/2*1%;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        // Colors 🎨
+        --primary: #242424;
+        --secondary: #D8CEE1;
+        --tertiary: #FFFFFF;
+        --col: 100/9*1%;
+    }
+}
+@media (min-width: $desktop-small) {
+    :root {
+        // Grids variables 📐
+        --gutter: 25px;
+        --nb-cols: 2;
+    }
+}

@@ -5,8 +5,8 @@
     margin: 0 auto;
 }
 .full-content {
-    padding-left: $small-gutter;
-    padding-right: $small-gutter;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
 }
 
 @media (min-width: $tablet){

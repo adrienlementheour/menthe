@@ -224,7 +224,7 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: $gutter * 2;
+    width: #{var(--gutter)} * 2;
     border: 2px solid $white;
     border-radius: 50%;
     z-index: 2;
@@ -241,7 +241,7 @@ export default {
         top: 50%;
         left: 50%;
         border-top: $line-height * 0.75 solid transparent;
-        border-left: $gutter * 0.75 solid $white;
+        border-left: #{var(--gutter)} * 0.75 solid $white;
         border-bottom: $line-height * 0.75 solid transparent;
         border-radius: 3px;
         box-sizing: border-box;
@@ -283,10 +283,10 @@ export default {
 
 @media (min-width: $phone) {
     .play-symbol {
-        width: $gutter * 3;
+        width: #{var(--gutter)} * 3;
         &::after {
             border-top: $line-height solid transparent;
-            border-left: $gutter solid $white;
+            border-left: #{var(--gutter)} solid $white;
             border-bottom: $line-height solid transparent;
         }
     }

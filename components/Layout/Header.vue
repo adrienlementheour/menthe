@@ -1,8 +1,6 @@
 <template>
     <header class="main-header container full-content">
-        <div class="header-title">
-            {{ headerData.title }}
-        </div>
+        <div class="header-title" v-html="headerData.title" />
         <div class="wrapper-mode">
             <button type="button" class="btn-mode" />
         </div>
@@ -42,6 +40,9 @@ export default {
     width: calc(100% - 50px);
     font-size: 1.5rem;
     font-variation-settings: 'wght' 600, 'wdth' 100;
+    /deep/ p {
+        margin: 0;
+    }
 }
 .wrapper-mode {
     flex: 0 0 auto;
@@ -63,5 +64,55 @@ export default {
     border-radius: 50%;
     border: 0;
     background: var(--secondary);
+}
+
+@media (min-width: $desktop-small) {
+    .main-header {
+        order: 1;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .header-title,
+    .column {
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+    }
+    .header-title {
+        width: calc(#{var(--col)} * 2);
+    }
+    .column {
+        width: calc(#{var(--col)} * 3);
+        margin-top: 0;
+        &.one {
+            order: 2;
+        }
+        &.two {
+            order: 3;
+        }
+    }
+    .wrapper-mode {
+        order: 4;
+        justify-content: center;
+        width: calc(#{var(--col)});
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+    }
+}
+
+@media (min-width: $desktop) {
+    .header-title,
+    .column {
+        width: calc(#{var(--col)} * 2);
+    }
+    .header-title,
+    .column.one {
+        margin-right: calc(#{var(--col)});
+    }
+    .header-title {
+        font-size: 1.8rem;
+    }
+    .column {
+        font-size: 1.8rem;
+    }
 }
 </style>
