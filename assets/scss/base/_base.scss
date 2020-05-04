@@ -161,3 +161,12 @@ a {
     font-size: 1.4rem;
     font-variation-settings: 'wght' 200, 'wdth' 150;
 }
+
+@media (min-width: $desktop) {
+    .square-title {
+        font-size: 2.4rem;
+    }
+    .square-subtitle {
+        font-size: 1.8rem;
+    }
+}

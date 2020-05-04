@@ -178,12 +178,6 @@ export default {
         }
         margin-bottom: 3 * $line-height;
     }
-    .square-title {
-        font-size: 2.4rem;
-    }
-    .square-subtitle {
-        font-size: 1.8rem;
-    }
     .client {
         font-size: 2.4rem;
     }
