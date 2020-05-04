@@ -43,4 +43,21 @@ export default {
     letter-spacing: 1px;
     color: var(--tertiary);
 }
+
+@media (min-width: $desktop-small) {
+    .contact-link {
+        padding: #{2 * $line-height} 0;
+        font-size: 4rem;
+        line-height: 2 * $line-height;
+    }
+}
+@media (min-width: $desktop) {
+    .contact-link {
+        padding: #{4 * $line-height} 0;
+        font-size: 6rem;
+        > span {
+            display: inline;
+        }
+    }
+}
 </style>
