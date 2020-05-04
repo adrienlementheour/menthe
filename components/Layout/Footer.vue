@@ -39,6 +39,10 @@ export default {
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
+    > div {
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+    }
 }
 .footer-text {
     flex: 0 0 auto;
@@ -53,7 +57,7 @@ export default {
 .copyright,
 .social {
     flex: 0 0 auto;
-    width: calc(50% - #{var(--gutter)});
+    width: 50%;
     margin-top: $line-height;
     /deep/ p {
         margin: 0;
@@ -67,6 +71,9 @@ export default {
     }
 }
 .social {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     font-size: 1.2rem;
     /deep/ p {
         font-variation-settings: 'wght' 350, 'wdth' 180;
@@ -77,6 +84,32 @@ export default {
         &:last-child {
             margin-right: 0;
         }
+    }
+}
+
+@media (min-width: $desktop-small) {
+    .copyright,
+    .footer-text,
+    .social {
+        width: calc(#{var(--col)} * 3);
+    }
+    .copyright {
+        order: 1;
+        font-size: 1.4rem;
+    }
+    .footer-text {
+        order: 2;
+        font-size: 1.4rem;
+    }
+    .social {
+        order: 3;
+        justify-content: flex-end;
+        font-size: 1.6rem;
+    }
+}
+@media (min-width: $desktop) {
+    .social {
+        font-size: 1.8rem;
     }
 }
 </style>
