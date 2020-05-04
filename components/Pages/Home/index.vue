@@ -33,11 +33,15 @@
                 </div>
             </div>
         </div>
+        <Journal :content="cmsData.journal" />
     </div>
 </template>
 
 <script>
+import Journal from '~/components/Layout/Journal';
+
 export default {
+    components: { Journal },
     props: {
         cmsData: { type: Object, required: true }
     }
@@ -83,16 +87,6 @@ export default {
         border: 1px solid var(--tertiary);
         background: var(--primary);
     }
-}
-.square-title {
-    font-size: 1.6rem;
-    font-variation-settings: 'wght' 700, 'wdth' 190;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.square-subtitle {
-    font-size: 1.4rem;
-    font-variation-settings: 'wght' 200, 'wdth' 150;
 }
 .clients {
     > span {

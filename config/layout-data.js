@@ -23,6 +23,17 @@ export const layoutDataQuery = gql`
         }
         footer(locale: $lang) {
             entityTitle
+            text
+            copyright
+            socialLinks {
+                id
+                ...link
+            }
+        }
+        contact(locale: $lang) {
+            entityTitle
+            bigText
+            smallText
         }
     }
 `;

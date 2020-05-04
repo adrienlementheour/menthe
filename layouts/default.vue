@@ -3,6 +3,7 @@
         <Loader />
         <Header />
         <nuxt />
+        <Contact />
         <Footer />
         <Svgs />
         <Grid v-if="isDevEnv" :columns-data="columnsData" />
@@ -15,13 +16,14 @@ import { ioPolyfill } from '@stereorepo/sac';
 import Loader from '~/components/Layout/Loader';
 import Header from '~/components/Layout/Header';
 import Footer from '~/components/Layout/Footer';
+import Contact from '~/components/Layout/Contact';
 import Svgs from '~/components/Miscellaneous/Svgs';
 
 // Lazy loaded resources
 const Grid = () => import('~/components/Layout/Grid');
 
 export default {
-    components: { Footer, Header, Grid, Loader, Svgs },
+    components: { Contact, Footer, Header, Grid, Loader, Svgs },
     data: () => ({
         isDevEnv: process.env.isDevEnv,
         columnsData: {

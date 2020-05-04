@@ -1,0 +1,46 @@
+<template>
+    <div class="contact container">
+        <a class="contact-link" href="mailto:hi@menthe.tech">
+            <span class="big-title">
+                {{ contactData.bigText }}
+            </span>
+            <span class="small-title">
+                {{ contactData.smallText }}
+            </span>
+        </a>
+    </div>
+</template>
+
+<script>
+import layoutData from '~/cms/data/layout-data.json';
+
+export default {
+    data() {
+        return {
+            contactData: layoutData[this.$store.state.i18n.locale].contact
+        };
+    }
+};
+</script>
+
+<style lang="scss" scoped>
+.contact-link {
+    display: block;
+    padding: #{2 * $line-height} 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.8rem;
+    > span {
+        display: block;
+    }
+}
+.big-title {
+    font-variation-settings: 'wght' 700, 'wdth' 190;
+    letter-spacing: 1px;
+}
+.small-title {
+    font-variation-settings: 'wght' 200, 'wdth' 200;
+    letter-spacing: 1px;
+    color: var(--tertiary);
+}
+</style>

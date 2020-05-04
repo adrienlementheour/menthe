@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getJournalPage } from '~/cms';
+import { getJournal } from '~/cms';
 import handleSeo from '~/assets/js/global/seo';
 
 import DynamicList from '~/components/Pages/DynamicList';
@@ -15,7 +15,7 @@ export default {
     async asyncData({ app, error, route, store }) {
         const { fullPath: routePath } = route;
 
-        const cmsData = await getJournalPage({ app, routePath, store });
+        const cmsData = await getJournal({ app, routePath, store });
 
         if (!cmsData) return error({ statusCode: 404 });
 

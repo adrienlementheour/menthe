@@ -20,5 +20,10 @@ export default gql`
         footer(locale: $lang) {
             entityTitle
         }
+        contact(locale: $lang) {
+            entityTitle
+            bigText
+            smallText
+        }
     }
 `;

@@ -84,7 +84,7 @@ em {
 
 blockquote {
     position: relative;
-    padding: 1em 0 1em $gutter * 2;
+    padding: 0;
 }
 
 ol,
@@ -147,4 +147,17 @@ a {
     &:active {
         filter: saturate(200%);
     }
+}
+
+/******* CLASSES GENERALES *******/
+
+.square-title {
+    font-size: 1.6rem;
+    font-variation-settings: 'wght' 700, 'wdth' 190;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.square-subtitle {
+    font-size: 1.4rem;
+    font-variation-settings: 'wght' 200, 'wdth' 150;
 }

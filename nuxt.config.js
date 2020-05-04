@@ -167,7 +167,7 @@ export default {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: ['~/plugins/globals.js', '~/plugins/breakpoints.js'],
+    plugins: ['~/plugins/globals.js', '~/plugins/breakpoints.js', '~/plugins/myfilters.js'],
     /*
      ** Nuxt.js dev-modules
      ** SEE: https://github.com/Atinux/nuxt-prismic-showcase/tree/master/modules
