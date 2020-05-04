@@ -122,6 +122,15 @@ export default {
     font-variation-settings: 'wght' 600, 'wdth' 100;
 }
 
+@media (min-width: $desktop-small) {
+    .hero {
+        margin-top: #{5 * $line-height};
+        margin-bottom: #{5 * $line-height};
+        font-size: 4rem;
+        line-height: 2 * $line-height;
+    }
+}
+
 @media (min-width: $desktop) {
     .hero {
         margin-top: #{8 * $line-height};
