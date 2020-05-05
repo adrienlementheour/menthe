@@ -22,8 +22,10 @@
                             <div class="finding-date">
                                 {{ finding.createdAt | toClassicDate }}
                             </div>
-                            <div class="finding-category">
-                                {{ finding.category }}
+                            <div class="wrapper-category">
+                                <div class="finding-category">
+                                    {{ finding.category }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,7 +66,7 @@ export default {
 }
 .wrapper-date-category {
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
     > div {
         flex: 0 0 auto;
         width: 50%;
@@ -73,6 +75,22 @@ export default {
 .finding-date {
     font-size: 1.2rem;
     font-variation-settings: 'wght' 600, 'wdth' 100;
+}
+.wrapper-category {
+    display: grid;
+    justify-content: flex-start;
+}
+.finding-category {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        right: -4px;
+        bottom: 2px;
+        left: -4px;
+        border: 1px solid var(--tertiary);
+    }
 }
 .finding-content {
     /deep/ p {
