@@ -12,9 +12,10 @@
                     </h4>
                 </div>
                 <div class="clients">
-                    <span v-for="client in cmsData.clients" :key="client.id" class="client">{{
-                        client.clientName
-                    }}</span>
+                    <span v-for="client in cmsData.clients" :key="client.id" class="client">
+                        <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
+                        <span v-else>{{ client.clientName }}</span>
+                    </span>
                 </div>
             </div>
             <div class="wrapper-presentation stack">
@@ -107,6 +108,9 @@ export default {
 .client {
     font-size: 1.8rem;
     font-variation-settings: 'wght' 700, 'wdth' 190;
+    > * {
+        text-decoration: none;
+    }
 }
 .stack-line {
     margin-bottom: $line-height;

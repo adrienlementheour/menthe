@@ -13,6 +13,10 @@ export default gql`
                 _modelApiKey
                 id
                 clientName
+                hasLink
+                clientLink {
+                    ...link
+                }
             }
             stackTitle
             stackSubtitle
