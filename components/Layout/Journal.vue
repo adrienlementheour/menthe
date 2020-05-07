@@ -10,10 +10,8 @@
                 </h4>
             </div>
             <div class="findings">
-                <div v-for="finding in content.findings" :key="finding.id" class="finding">
-                    <div class="finding-number">
-                        #1
-                    </div>
+                <div v-for="(finding, index) in displayedFindings" :key="finding.id" class="finding">
+                    <div class="finding-number">#{{ (nbFindings -= index) }}</div>
                     <div class="finding-desc">
                         <div class="finding-title">
                             {{ finding.title }}
@@ -42,6 +40,19 @@ export default {
         content: {
             type: Object,
             required: true
+        },
+        display: {
+            type: Number,
+            required: false,
+            default: 3
+        }
+    },
+    computed: {
+        displayedFindings() {
+            return this.display ? this.content.findings.slice(0, this.display) : this.content.findings;
+        },
+        nbFindings() {
+            return this.content.findings.length;
         }
     }
 };
