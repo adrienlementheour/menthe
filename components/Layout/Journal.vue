@@ -11,7 +11,9 @@
             </div>
             <div class="findings">
                 <div v-for="(finding, index) in displayedFindings" :key="finding.id" class="finding">
-                    <div class="finding-number">#{{ (nbFindings -= index) }}</div>
+                    <div class="finding-number">
+                        {{ nbFindings - index }}
+                    </div>
                     <div class="finding-desc">
                         <div class="finding-title">
                             {{ finding.title }}
@@ -47,13 +49,15 @@ export default {
             default: 3
         }
     },
-    computed: {
-        displayedFindings() {
-            return this.display ? this.content.findings.slice(0, this.display) : this.content.findings;
-        },
-        nbFindings() {
-            return this.content.findings.length;
-        }
+    data() {
+        return {
+            displayedFindings: null,
+            nbFindings: 0
+        };
+    },
+    mounted() {
+        this.displayedFindings = this.display ? this.content.findings.slice(0, this.display) : this.content.findings;
+        this.nbFindings = this.content.findings.length;
     }
 };
 </script>

@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <Journal :content="cmsData.journal" display="3" />
+        <Journal :content="cmsData.journal" :display="3" />
     </div>
 </template>
 
