@@ -80,8 +80,8 @@ export default {
     }
     &::before {
         top: 50%;
-        left: calc(#{var(--gutter)} * -1 - 20px);
-        right: calc(#{var(--gutter)} * -1 - 20px);
+        left: calc(#{var(--gutter)} * -1 - 10px);
+        right: calc(#{var(--gutter)} * -1 - 10px);
         border-top: 1px solid var(--tertiary);
     }
     &::after {
