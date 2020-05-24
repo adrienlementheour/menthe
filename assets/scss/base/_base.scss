@@ -166,7 +166,8 @@ a {
     position: relative;
     text-decoration: none;
     &::after {
-        content: '\2197';
+        
+        content: '\2197\FE0E';
         font-size: 0.8em;
         margin-left: 0.3em;
     }
