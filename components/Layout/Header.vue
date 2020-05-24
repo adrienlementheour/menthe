@@ -115,11 +115,6 @@ export default {
     border: 0;
     background: var(--secondary);
     z-index: 1;
-    &:hover {
-        .wrapper-rays {
-            transform: scale(0);
-        }
-    }
     &:focus {
         outline: none;
     }
@@ -210,11 +205,6 @@ export default {
 }
 .darkmode {
     .btn-mode {
-        &:hover {
-            .wrapper-rays {
-                transform: scale(1);
-            }
-        }
         .wrapper-rays {
             transform: scale(0);
         }
@@ -222,11 +212,6 @@ export default {
 }
 .lightmode {
     .btn-mode {
-        &:hover {
-            .wrapper-rays {
-                transform: scale(0);
-            }
-        }
         .wrapper-rays {
             transform: scale(1);
         }
