@@ -39,6 +39,18 @@ $desktop-xxl-v: 1080px;
     --gutter: 10px; // Space between columns = 20px
     --col: 100/2*1%;
 }
+.lightmode {
+    // Colors 🎨
+    --primary: #E1DDE4;
+    --secondary: #242424;
+    --tertiary: #2421EC;
+}
+.darkmode {
+    // Colors 🎨
+    --primary: #242424;
+    --secondary: #D8CEE1;
+    --tertiary: #FFFFFF;
+}
 @media (prefers-color-scheme: dark) {
     :root {
         // Colors 🎨

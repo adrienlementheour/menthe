@@ -17,7 +17,6 @@ html {
     height: 100%;
     /* sets the base font to 10px for easier math */
     font-size: 62.5%;
-    background: var(--primary);
 }
 
 body {
@@ -29,6 +28,7 @@ body {
     font-kerning: normal;
     font-weight: normal;
     line-height: $line-height;
+    background: var(--primary);
     overflow-x: hidden;
 }
 

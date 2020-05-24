@@ -30,8 +30,20 @@ export default {
             xl: 9,
             s: 5,
             xs: 2
-        }
+        },
+        colorMode: ''
     }),
+    computed: {
+        manualColorMode() {
+            return this.$store.state.manualColorMode;
+        },
+        manualDarkMode() {
+            return this.$store.state.manualDarkMode;
+        }
+    },
+    created() {
+        this.getColorMode();
+    },
     mounted() {
         this.handleWindow();
         this.handleScroll();
@@ -63,7 +75,31 @@ export default {
             this.$stereorepo.superScroll.on('scroll', scrollTop => {
                 this.$store.commit('scroll/setScrollTop', scrollTop);
             });
+        },
+        getColorMode() {
+            if (process.browser) {
+                this.colorMode = localStorage.getItem('colorMode');
+                if (this.colorMode === 'light') {
+                    this.$store.commit('setManualColorMode', true);
+                    this.$store.commit('setManualDarkMode', false);
+                } else if (this.colorMode === 'dark') {
+                    this.$store.commit('setManualColorMode', true);
+                    this.$store.commit('setManualDarkMode', true);
+                }
+            }
         }
+    },
+    head() {
+        return {
+            bodyAttrs: {
+                class:
+                    this.manualColorMode && !this.manualDarkMode
+                        ? 'lightmode'
+                        : this.manualColorMode && this.manualDarkMode
+                        ? 'darkmode'
+                        : ''
+            }
+        };
     }
 };
 </script>

@@ -2,7 +2,7 @@
     <header class="main-header container full-content">
         <div class="header-title" v-html="headerData.title" />
         <div class="wrapper-mode">
-            <button type="button" class="btn-mode">
+            <button type="button" class="btn-mode" aria-label="Toggle dark mode" @click="toggleDarkMode">
                 <span class="wrapper-rays">
                     <span />
                     <span />
@@ -38,6 +38,40 @@ export default {
         return {
             headerData: layoutData[this.$store.state.i18n.locale].header
         };
+    },
+    computed: {
+        manualColorMode() {
+            return this.$store.state.manualColorMode;
+        }
+    },
+    methods: {
+        toggleDarkMode() {
+            if (localStorage.getItem('colorMode') !== '') {
+                this.$store.commit('setManualColorMode', true);
+                if (localStorage.getItem('colorMode') === 'light') {
+                    this.$store.commit('setManualDarkMode', true);
+                    localStorage.setItem('colorMode', 'dark');
+                } else {
+                    this.$store.commit('setManualDarkMode', false);
+                    localStorage.setItem('colorMode', 'light');
+                }
+            } else {
+                this.$store.commit('setManualColorMode', true);
+                if (window.matchMedia) {
+                    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        // from dark to light mode
+                        this.$store.commit('setManualDarkMode', false);
+                        localStorage.setItem('colorMode', 'light');
+                    } else {
+                        // from light to dark mode
+                        this.$store.commit('setManualDarkMode', true);
+                        localStorage.setItem('colorMode', 'dark');
+                    }
+                } else {
+                    this.$store.state.manualDarkMode = !this.manualColorMode;
+                }
+            }
+        }
     }
 };
 </script>
@@ -81,31 +115,13 @@ export default {
     border: 0;
     background: var(--secondary);
     z-index: 1;
-    // &::before,
-    // &::after {
-    //     content: '';
-    //     position: absolute;
-    // }
-    // &::before {
-    //     left: 50%;
-    //     top: 0;
-    //     height: 100%;
-    //     background: red;
-    //     width: 2px;
-    //     margin-left: -1px;
-    // }
-    // &::after {
-    //     left: 0;
-    //     top: 50%;
-    //     width: 100%;
-    //     background: red;
-    //     height: 2px;
-    //     margin-top: -1px;
-    // }
     &:hover {
         .wrapper-rays {
             transform: scale(0);
         }
+    }
+    &:focus {
+        outline: none;
     }
     .wrapper-rays {
         position: absolute;
@@ -189,6 +205,30 @@ export default {
         }
         .wrapper-rays {
             transform: scale(0);
+        }
+    }
+}
+.darkmode {
+    .btn-mode {
+        &:hover {
+            .wrapper-rays {
+                transform: scale(1);
+            }
+        }
+        .wrapper-rays {
+            transform: scale(0);
+        }
+    }
+}
+.lightmode {
+    .btn-mode {
+        &:hover {
+            .wrapper-rays {
+                transform: scale(0);
+            }
+        }
+        .wrapper-rays {
+            transform: scale(1);
         }
     }
 }
