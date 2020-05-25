@@ -27,6 +27,7 @@ export default {
 .contact-link {
     display: block;
     padding: #{2 * $line-height} 0;
+    font-feature-settings: 'salt' on;
     text-align: center;
     text-decoration: none;
     font-size: 2.8rem;
@@ -35,12 +36,10 @@ export default {
     }
 }
 .big-title {
-    font-variation-settings: 'wght' 700, 'wdth' 190;
-    letter-spacing: 1px;
+    font-weight: 800;
 }
 .small-title {
-    font-variation-settings: 'wght' 200, 'wdth' 200;
-    letter-spacing: 1px;
+    font-weight: 400;
     color: var(--tertiary);
 }
 

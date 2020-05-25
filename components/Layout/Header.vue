@@ -87,8 +87,8 @@ export default {
 .header-title {
     flex: 0 0 auto;
     width: calc(100% - 50px);
-    font-size: 1.5rem;
-    font-variation-settings: 'wght' 600, 'wdth' 100;
+    font-size: 1.6rem;
+    font-weight: 800;
     /deep/ p {
         margin: 0;
     }
@@ -104,7 +104,6 @@ export default {
     width: 100%;
     margin-top: $line-height;
     font-size: 1.6rem;
-    font-variation-settings: 'wght' 200, 'wdth' 150;
 }
 .btn-mode {
     position: relative;
@@ -232,10 +231,10 @@ export default {
         margin-right: calc(#{var(--col)});
     }
     .header-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     .column {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 }
 </style>

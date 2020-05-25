@@ -12,7 +12,7 @@
             <div class="findings">
                 <div v-for="(finding, index) in displayedFindings" :key="finding.id" class="finding">
                     <div class="finding-number">
-                        {{ nbFindings - index }}
+                        <span>#</span><span>{{ nbFindings - index }}</span>
                     </div>
                     <div class="finding-desc">
                         <div class="finding-title">
@@ -73,11 +73,11 @@ export default {
 }
 .finding-number {
     font-size: 1.8rem;
-    font-variation-settings: 'wght' 700, 'wdth' 190;
+    font-weight: 900;
 }
 .finding-title {
     font-size: 1.8rem;
-    font-variation-settings: 'wght' 700, 'wdth' 190;
+    font-weight: 900;
 }
 .wrapper-date-category {
     display: flex;
@@ -89,7 +89,7 @@ export default {
 }
 .finding-date {
     font-size: 1.2rem;
-    font-variation-settings: 'wght' 600, 'wdth' 100;
+    font-weight: 800;
 }
 .wrapper-category {
     display: grid;
@@ -97,6 +97,7 @@ export default {
 }
 .finding-category {
     position: relative;
+    font-size: 1.2rem;
     &::before {
         content: '';
         position: absolute;
@@ -173,13 +174,13 @@ export default {
         font-size: 2.4rem;
     }
     .finding-date {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     .finding-category {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     .finding-content {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
     .finding-number {
         font-size: 2.4rem;

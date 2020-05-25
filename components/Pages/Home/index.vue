@@ -53,11 +53,15 @@ export default {
 .hero {
     margin-top: $line-height;
     margin-bottom: #{3 * $line-height};
-    font-size: 2.6rem;
-    font-variation-settings: 'wght' 700, 'wdth' 190;
+    font-feature-settings: 'salt' on;
+    font-size: 3.2rem;
+    font-weight: 400;
     line-height: 1.5 * $line-height;
+    /deep/ h1 {
+        font-weight: 400;
+    }
     /deep/ strong {
-        font-variation-settings: 'wght' 150, 'wdth' 130;
+        font-weight: 800;
     }
 }
 
@@ -106,8 +110,9 @@ export default {
     }
 }
 .client {
-    font-size: 1.8rem;
-    font-variation-settings: 'wght' 700, 'wdth' 190;
+    font-feature-settings: 'salt' on;
+    font-size: 2.2rem;
+    font-weight: 800;
     > * {
         text-decoration: none;
     }
@@ -126,15 +131,16 @@ export default {
     }
 }
 .tool {
-    font-size: 1.6rem;
-    font-variation-settings: 'wght' 600, 'wdth' 100;
+    font-feature-settings: 'salt' on;
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 @media (min-width: $desktop-small) {
     .hero {
         margin-top: #{5 * $line-height};
         margin-bottom: #{5 * $line-height};
-        font-size: 4rem;
+        font-size: 5rem;
         line-height: 2 * $line-height;
     }
     .wrapper-clients-stack {
@@ -174,7 +180,7 @@ export default {
     .hero {
         margin-top: #{6 * $line-height};
         margin-bottom: #{6 * $line-height};
-        font-size: 6rem;
+        font-size: 7.2rem;
         line-height: 3 * $line-height;
     }
     .square-block {
@@ -184,10 +190,10 @@ export default {
         margin-bottom: 3 * $line-height;
     }
     .client {
-        font-size: 2.4rem;
+        font-size: 3rem;
     }
     .tool {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
 }
 </style>

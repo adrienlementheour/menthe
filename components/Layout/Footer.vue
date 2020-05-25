@@ -47,11 +47,8 @@ export default {
 .footer-text {
     flex: 0 0 auto;
     width: 100%;
-    font-size: 1.2rem;
     /deep/ p {
         margin: 0;
-        font-variation-settings: 'wght' 350, 'wdth' 180;
-        letter-spacing: 0.2;
     }
 }
 .copyright,
@@ -64,21 +61,12 @@ export default {
     }
 }
 .copyright {
-    font-size: 1rem;
-    /deep/ p {
-        font-variation-settings: 'wght' 350, 'wdth' 180;
-        letter-spacing: 0.2;
-    }
+    font-size: 1.2rem;
 }
 .social {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    font-size: 1.2rem;
-    /deep/ p {
-        font-variation-settings: 'wght' 350, 'wdth' 180;
-        letter-spacing: 0.2;
-    }
     /deep/ a {
         margin-right: 20px;
         &:last-child {
@@ -95,11 +83,11 @@ export default {
     }
     .copyright {
         order: 1;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     .footer-text {
         order: 2;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     .social {
         order: 3;
