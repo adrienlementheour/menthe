@@ -164,9 +164,7 @@ a {
     position: relative;
     text-decoration: none;
     &::after {
-        
         content: '\2197\FE0E';
-        font-size: 0.8em;
         margin-left: 0.3em;
     }
     &.framed, &.underlined {
@@ -178,9 +176,9 @@ a {
     &.framed {
         margin-left: 2px;
         &::before {
-            top: -4px;
+            top: -2px;
             right: -4px;
-            bottom: -2px;
+            bottom: 0;
             left: -4px;
             border: 1px solid var(--tertiary);
         }
@@ -188,7 +186,7 @@ a {
     &.underlined {
         &::before {
             right: 0;
-            bottom: -1px;
+            bottom: 1px;
             left: 0;
             border-top: 1px solid var(--tertiary);
         }
