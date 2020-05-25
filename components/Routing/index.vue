@@ -6,7 +6,7 @@
         :event="eventEnabler"
         v-on="$listeners"
     >
-        {{ linkData.text }}
+        <span>{{ linkData.text }}</span>
     </nuxt-link>
     <a
         v-else-if="link.type === 'from-cms' && linkData.type === 'external'"
@@ -15,7 +15,7 @@
         :event="eventEnabler"
         v-on="$listeners"
     >
-        {{ linkData.text }}
+        <span>{{ linkData.text }}</span>
     </a>
     <nuxt-link
         v-else-if="link.type === 'internal'"
@@ -24,7 +24,7 @@
         :event="eventEnabler"
         v-on="$listeners"
     >
-        <slot />
+        <span><slot /></span>
     </nuxt-link>
     <a
         v-else-if="link.type === 'external'"
@@ -33,7 +33,7 @@
         :event="eventEnabler"
         v-on="$listeners"
     >
-        <slot />
+        <span><slot /></span>
     </a>
 </template>
 <script>
