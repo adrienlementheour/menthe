@@ -7,6 +7,7 @@ export default gql`
         homePage(locale: $lang) {
             entityTitle
             hero
+            asterisk
             clientsTitle
             clientsSubtitle
             clients {

@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div class="hero container full-content" v-html="cmsData.hero" />
+        <div class="wrapper-hero container full-content">
+            <div class="hero" v-html="cmsData.hero" />
+            <div class="asterisk">
+                {{ cmsData.asterisk }}
+            </div>
+        </div>
         <div class="wrapper-clients-stack container full-content">
             <div class="wrapper-presentation clients">
                 <div class="square-block">
@@ -50,9 +55,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero {
+.wrapper-hero {
     margin-top: $line-height;
     margin-bottom: #{3 * $line-height};
+}
+.hero {
     font-feature-settings: 'salt' on;
     font-size: 3.2rem;
     font-weight: 400;
@@ -63,6 +70,11 @@ export default {
     /deep/ strong {
         font-weight: 800;
     }
+}
+.asterisk {
+    margin-top: $line-height;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
 .wrapper-clients-stack {
@@ -137,11 +149,16 @@ export default {
 }
 
 @media (min-width: $desktop-small) {
+    .wrapper-hero {
+        margin-top: #{3 * $line-height};
+        margin-bottom: #{3 * $line-height};
+    }
     .hero {
-        margin-top: #{5 * $line-height};
-        margin-bottom: #{5 * $line-height};
         font-size: 5rem;
         line-height: 2 * $line-height;
+    }
+    .asterisk {
+        font-size: 2rem;
     }
     .wrapper-clients-stack {
         flex-direction: row;
@@ -178,10 +195,12 @@ export default {
 
 @media (min-width: $desktop) {
     .hero {
-        margin-top: #{6 * $line-height};
-        margin-bottom: #{6 * $line-height};
         font-size: 7.2rem;
         line-height: 3 * $line-height;
+    }
+    .asterisk {
+        margin-top: 2 * $line-height;
+        font-size: 2.4rem;
     }
     .square-block {
         &::after {
@@ -194,6 +213,21 @@ export default {
     }
     .tool {
         font-size: 2.2rem;
+    }
+}
+
+@media (min-width: $desktop-large) {
+    .wrapper-hero {
+        margin-top: #{4 * $line-height};
+        margin-bottom: #{4 * $line-height};
+        @media (max-height: 750px) {
+            margin-top: #{1 * $line-height};
+            margin-bottom: #{3 * $line-height};
+        }
+        @media (max-height: 750px) {
+            margin-top: #{1 * $line-height};
+            margin-bottom: #{3 * $line-height};
+        }
     }
 }
 </style>
