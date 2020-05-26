@@ -126,34 +126,34 @@ export default {
                 hid: 'twitter:image',
                 name: 'twitter:image',
                 content: '/images/MyBusinessOgImage.png'
-            }
+            },
             // COMBAK: Uncomment and update real favicon generator tile color
-            // {
-            //     name: 'msapplication-TileColor',
-            //     content: '#fff',
-            // },
+            {
+                name: 'msapplication-TileColor',
+                content: '#da532c'
+            }
         ],
         link: [
             // COMBAK: Uncomment and update real favicon generator favicon 32x32
-            // {
-            //     rel: 'icon',
-            //     type: 'image/png',
-            //     sizes: '32x32',
-            //     href: '/favicon-32x32.png',
-            // },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon-32x32.png'
+            },
             // COMBAK: Uncomment and update real favicon generator favicon 16x16
-            // {
-            //     rel: 'icon',
-            //     type: 'image/png',
-            //     sizes: '16x16',
-            //     href: '/favicon-16x16.png',
-            // },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon-16x16.png'
+            },
             // COMBAK: Uncomment and update real favicon generator safari pinned tab
-            // {
-            //     rel: 'mask-icon',
-            //     href: '/safari-pinned-tab.svg',
-            //     color: '#fff',
-            // },
+            {
+                rel: 'mask-icon',
+                href: '/safari-pinned-tab.svg',
+                color: '#fff'
+            }
         ]
     },
     /*
