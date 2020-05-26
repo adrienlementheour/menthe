@@ -32,9 +32,9 @@ $desktop-xxl-v: 1080px;
 
 :root {
     // Colors 🎨
-    --primary: #E1DDE4;
+    --primary: #FAFAFA;
     --secondary: #242424;
-    --tertiary: #2421EC;
+    --tertiary: #01A85E;
 
     // Grids variables 📐
     --gutter: 10px; // Space between columns = 20px
@@ -42,22 +42,22 @@ $desktop-xxl-v: 1080px;
 }
 .lightmode {
     // Colors 🎨
-    --primary: #E1DDE4;
+    --primary: #FAFAFA;
     --secondary: #242424;
-    --tertiary: #2421EC;
+    --tertiary: #01A85E;
 }
 .darkmode {
     // Colors 🎨
     --primary: #242424;
-    --secondary: #D8CEE1;
-    --tertiary: #FFFFFF;
+    --secondary: #FAFAFA;
+    --tertiary: #01A85E;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         // Colors 🎨
         --primary: #242424;
-        --secondary: #D8CEE1;
-        --tertiary: #FFFFFF;
+        --secondary: #FAFAFA;
+        --tertiary: #01A85E;
     }
 }
 @media (min-width: $desktop-small) {
