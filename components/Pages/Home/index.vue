@@ -148,6 +148,15 @@ export default {
     line-height: #{2 * $line-height};
 }
 
+@media (min-width: $tablet) {
+    .square-block {
+        &::before {
+            left: calc(#{var(--gutter)} * -1 - 22px);
+            right: calc(#{var(--gutter)} * -1 - 22px);
+        }
+    }
+}
+
 @media (min-width: $desktop-small) {
     .wrapper-hero {
         margin-top: #{3 * $line-height};
