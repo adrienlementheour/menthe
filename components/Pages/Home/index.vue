@@ -130,7 +130,6 @@ export default {
     }
 }
 .stack-line {
-    margin-bottom: $line-height;
     > span {
         &::after {
             content: ', ';
@@ -146,6 +145,7 @@ export default {
     font-feature-settings: 'salt' on;
     font-size: 1.8rem;
     font-weight: 800;
+    line-height: #{2 * $line-height};
 }
 
 @media (min-width: $desktop-small) {
@@ -190,6 +190,10 @@ export default {
                 }
             }
         }
+    }
+    .client {
+        font-size: 2.5rem;
+        line-height: #{2 * $line-height};
     }
 }
 
