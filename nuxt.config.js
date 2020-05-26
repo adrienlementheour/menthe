@@ -39,7 +39,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'Menthé — Adrien Le Menthéour',
         htmlAttrs: {
             lang: 'fr'
         },
@@ -53,25 +53,25 @@ export default {
             {
                 hid: 'author',
                 name: 'author',
-                content: 'Stéréosuper'
+                content: 'Adrien Le Menthéour'
             },
             // COMBAK: Update open graph meta title
             {
                 hid: 'og:title',
                 property: 'og:title',
-                content: 'My business'
+                content: 'Menthé — Adrien Le Menthéour'
             },
             // COMBAK: Update open graph meta site_name
             {
                 hid: 'og:site_name',
                 property: 'og:site_name',
-                content: 'My business'
+                content: 'Menthé'
             },
             // COMBAK: Update open graph meta url
             {
                 hid: 'og:url',
                 property: 'og:url',
-                content: 'https://my-business.fr'
+                content: 'https://menthe.tech'
             },
             // COMBAK: Update open graph meta image
             {
@@ -113,13 +113,13 @@ export default {
             {
                 hid: 'twitter:site',
                 name: 'twitter:site',
-                content: '@MyBusiness'
+                content: '@adrienleme'
             },
             // COMBAK: Update open graph meta twitter:creator
             {
                 hid: 'twitter:creator',
                 name: 'twitter:creator',
-                content: '@MyBusiness'
+                content: '@adrienleme'
             },
             // COMBAK: Update open graph meta twitter:image
             {
@@ -130,7 +130,7 @@ export default {
             // COMBAK: Uncomment and update real favicon generator tile color
             {
                 name: 'msapplication-TileColor',
-                content: '#da532c'
+                content: '#000000'
             }
         ],
         link: [
@@ -152,7 +152,7 @@ export default {
             {
                 rel: 'mask-icon',
                 href: '/safari-pinned-tab.svg',
-                color: '#fff'
+                color: '#242424'
             }
         ]
     },
