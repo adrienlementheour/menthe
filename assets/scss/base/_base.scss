@@ -1,14 +1,14 @@
 /******* GÉNÉRAL *******/
 
 ::-moz-selection {
-    background: rgba($black, 0.99);
+    background: var(--tertiary);
     color: $white;
     text-shadow: none;
     opacity: 0.99;
 }
 
 ::selection {
-    background: rgba($black, 0.99);
+    background: var(--tertiary);
     color: $white;
     text-shadow: none;
 }
