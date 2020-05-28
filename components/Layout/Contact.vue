@@ -1,5 +1,5 @@
 <template>
-    <div class="contact container">
+    <div class="contact">
         <a class="contact-link" href="mailto:hi@menthe.tech">
             <span class="big-title">
                 {{ contactData.bigText }}
