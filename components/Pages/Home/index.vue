@@ -198,6 +198,10 @@ export default {
         }
     }
 }
+.stack-lines {
+    position: relative;
+    top: 0.15em;
+}
 .stack-line {
     > span {
         margin-right: 7px;
