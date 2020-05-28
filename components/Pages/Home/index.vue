@@ -25,7 +25,10 @@
                         @mouseleave="clearTools"
                     >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
-                        <span v-else>{{ client.clientName }}</span>
+                        <span v-else class="no-link">
+                            <span>{{ client.clientName }}</span>
+                            <span class="no-link-label">No link</span>
+                        </span>
                     </span>
                 </div>
             </div>
@@ -162,6 +165,36 @@ export default {
     > * {
         text-decoration: none;
         white-space: nowrap;
+    }
+    .no-link {
+        position: relative;
+        &:hover {
+            .no-link-label {
+                opacity: 1;
+            }
+        }
+        .no-link-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 1.6rem;
+            font-weight: 400;
+            line-height: $line-height;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate3d(-50%, -50%, 0);
+            z-index: 1;
+            &::before {
+                content: '';
+                position: absolute;
+                top: -1px;
+                right: -5px;
+                bottom: 3px;
+                left: -5px;
+                background: var(--tertiary);
+                z-index: -1;
+            }
+        }
     }
 }
 .stack-line {
