@@ -18,6 +18,10 @@ export default gql`
                 clientLink {
                     ...link
                 }
+                linkedTools {
+                    id
+                    toolName
+                }
             }
             stackTitle
             stackSubtitle

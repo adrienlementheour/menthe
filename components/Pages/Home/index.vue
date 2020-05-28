@@ -17,7 +17,13 @@
                     </h4>
                 </div>
                 <div class="clients">
-                    <span v-for="client in cmsData.clients" :key="client.id" class="client">
+                    <span
+                        v-for="client in cmsData.clients"
+                        :key="client.id"
+                        class="client"
+                        @mouseover="linkTool(client.linkedTools)"
+                        @mouseleave="clearTools"
+                    >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else>{{ client.clientName }}</span>
                     </span>
@@ -33,8 +39,10 @@
                     </h4>
                 </div>
                 <div class="stack-lines">
-                    <div v-for="line in cmsData.stack" :key="line.id" class="stack-line">
-                        <span v-for="tool in line.stackLine" :key="tool.id" class="tool">{{ tool.toolName }}</span>
+                    <div v-for="line in stacks" :key="line.id" class="stack-line">
+                        <span v-for="tool in line" :key="tool.id" class="tool" :class="{ 'is-active': tool.isActive }">
+                            <span>{{ tool.toolName }}</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -50,6 +58,32 @@ export default {
     components: { Journal },
     props: {
         cmsData: { type: Object, required: true }
+    },
+    data() {
+        return {
+            activedTools: []
+        };
+    },
+    computed: {
+        stacks() {
+            return this.cmsData.stack.map(line => {
+                return line.stackLine.map(tool => {
+                    tool.isActive = this.activedTools.includes(tool.id);
+                    return tool;
+                });
+            });
+        }
+    },
+    methods: {
+        linkTool(linkedTools) {
+            const tools = linkedTools.map(tool => {
+                return tool.id;
+            });
+            this.activedTools = tools;
+        },
+        clearTools() {
+            this.activedTools = [];
+        }
     }
 };
 </script>
@@ -127,14 +161,17 @@ export default {
     font-weight: 800;
     > * {
         text-decoration: none;
+        white-space: nowrap;
     }
 }
 .stack-line {
     > span {
+        margin-right: 7px;
         &::after {
-            content: ', ';
+            content: ',';
         }
         &:last-child {
+            margin-right: 0;
             &::after {
                 content: none;
             }
@@ -142,10 +179,26 @@ export default {
     }
 }
 .tool {
+    position: relative;
     font-feature-settings: 'salt' on;
     font-size: 1.8rem;
     font-weight: 800;
     line-height: #{2 * $line-height};
+    &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        right: -4px;
+        bottom: 0;
+        left: -4px;
+        border: 1px solid var(--tertiary);
+        opacity: 0;
+    }
+    &.is-active {
+        &::before {
+            opacity: 1;
+        }
+    }
 }
 
 @media (min-width: $tablet) {
