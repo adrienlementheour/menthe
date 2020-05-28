@@ -23,6 +23,7 @@ export default gql`
                     toolName
                 }
             }
+            noLinkLabel
             stackTitle
             stackSubtitle
             stack {

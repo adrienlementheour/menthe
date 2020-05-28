@@ -27,7 +27,7 @@
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else class="no-link">
                             <span>{{ client.clientName }}</span>
-                            <span class="no-link-label">No link</span>
+                            <span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
@@ -191,6 +191,7 @@ export default {
                 right: -5px;
                 bottom: 3px;
                 left: -5px;
+                border: 1px solid var(--primary);
                 background: var(--tertiary);
                 z-index: -1;
             }
