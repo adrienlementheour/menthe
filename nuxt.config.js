@@ -55,79 +55,66 @@ export default {
                 name: 'author',
                 content: 'Adrien Le Menthéour'
             },
-            // COMBAK: Update open graph meta title
             {
                 hid: 'og:title',
                 property: 'og:title',
                 content: 'Menthé — Adrien Le Menthéour'
             },
-            // COMBAK: Update open graph meta site_name
             {
                 hid: 'og:site_name',
                 property: 'og:site_name',
                 content: 'Menthé'
             },
-            // COMBAK: Update open graph meta url
             {
                 hid: 'og:url',
                 property: 'og:url',
                 content: 'https://menthe.tech'
             },
-            // COMBAK: Update open graph meta image
             {
                 hid: 'og:image',
                 property: 'og:image',
-                content: '/share.png'
+                content: 'https://menthe.tech/share.png'
             },
-            // COMBAK: Update open graph meta image:width
             {
                 hid: 'og:image:width',
                 property: 'og:image:width',
                 content: '1200'
             },
-            // COMBAK: Update open graph meta image:height
             {
                 hid: 'og:image:height',
                 property: 'og:image:height',
                 content: '630'
             },
-            // COMBAK: Update open graph meta image:type
             {
                 hid: 'og:image:type',
                 property: 'og:image:type',
                 content: 'image/png'
             },
-            // COMBAK: Update open graph meta image:alt
             {
                 hid: 'og:image:alt',
                 property: 'og:image:alt',
-                content: 'My business og image alt'
+                content: 'Menthé — Adrien Le Menthéour'
             },
-            // COMBAK: Update open graph meta twitter:card
             {
                 hid: 'twitter:card',
                 name: 'twitter:card',
                 content: 'summary_large_image'
             },
-            // COMBAK: Update open graph meta twitter:site
             {
                 hid: 'twitter:site',
                 name: 'twitter:site',
                 content: '@adrienleme'
             },
-            // COMBAK: Update open graph meta twitter:creator
             {
                 hid: 'twitter:creator',
                 name: 'twitter:creator',
                 content: '@adrienleme'
             },
-            // COMBAK: Update open graph meta twitter:image
             {
                 hid: 'twitter:image',
                 name: 'twitter:image',
-                content: '/share.png'
+                content: 'https://menthe.tech/share.png'
             },
-            // COMBAK: Uncomment and update real favicon generator tile color
             {
                 name: 'msapplication-TileColor',
                 content: '#000000'
