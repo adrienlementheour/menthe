@@ -2,7 +2,7 @@ const seoHandler = ({ seoData, routePath }) => {
     const head = { htmlAttrs: {}, meta: [] };
 
     if (routePath) {
-        const url = `https://www.menthe.tech${routePath}`;
+        const url = `https://menthe.tech${routePath}`;
         head.meta = [
             ...head.meta,
             {
