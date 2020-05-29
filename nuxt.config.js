@@ -77,19 +77,19 @@ export default {
             {
                 hid: 'og:image',
                 property: 'og:image',
-                content: '/images/MyBusinessOgImage.png'
+                content: '/share.png'
             },
             // COMBAK: Update open graph meta image:width
             {
                 hid: 'og:image:width',
                 property: 'og:image:width',
-                content: '2000'
+                content: '1200'
             },
             // COMBAK: Update open graph meta image:height
             {
                 hid: 'og:image:height',
                 property: 'og:image:height',
-                content: '1550'
+                content: '630'
             },
             // COMBAK: Update open graph meta image:type
             {
@@ -125,7 +125,7 @@ export default {
             {
                 hid: 'twitter:image',
                 name: 'twitter:image',
-                content: '/images/MyBusinessOgImage.png'
+                content: '/share.png'
             },
             // COMBAK: Uncomment and update real favicon generator tile color
             {
