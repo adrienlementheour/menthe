@@ -266,13 +266,14 @@ export default {
     pwa: {
         // SEE: https://developer.mozilla.org/en-US/docs/Web/Manifest
         manifest: {
-            name: 'My Business',
-            short_name: 'My Business',
+            name: 'Menthé — Adrien Le Menthéour',
+            short_name: 'Menthé',
             // COMBAK: Update pwa description
-            description: 'My Business app description',
-            start_url: websiteUrl,
+            description:
+                "Front‑end developer with a graphic design background. I've worked on a lot of {exciting} startup websites.",
+            start_url: 'https://menthe.tech',
             display: 'standalone',
-            lang: 'fr-FR',
+            lang: 'en-US',
             dir: 'ltr',
             theme_color: '#000000',
             background_color: '#000000',
@@ -293,8 +294,8 @@ export default {
             // COMBAK: Update pwa screenshots
             screenshots: [
                 {
-                    src: `${websiteUrl}/images/MyBusinessOgImage.png`,
-                    sizes: '2000x1550',
+                    src: 'https://menthe.tech/share.png',
+                    sizes: '1200x630',
                     type: 'image/png'
                 }
             ]
