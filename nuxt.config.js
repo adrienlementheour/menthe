@@ -121,21 +121,18 @@ export default {
             }
         ],
         link: [
-            // COMBAK: Uncomment and update real favicon generator favicon 32x32
             {
                 rel: 'icon',
                 type: 'image/png',
                 sizes: '32x32',
                 href: '/favicon-32x32.png'
             },
-            // COMBAK: Uncomment and update real favicon generator favicon 16x16
             {
                 rel: 'icon',
                 type: 'image/png',
                 sizes: '16x16',
                 href: '/favicon-16x16.png'
             },
-            // COMBAK: Uncomment and update real favicon generator safari pinned tab
             {
                 rel: 'mask-icon',
                 href: '/safari-pinned-tab.svg',
@@ -255,7 +252,6 @@ export default {
         manifest: {
             name: 'Menthé — Adrien Le Menthéour',
             short_name: 'Menthé',
-            // COMBAK: Update pwa description
             description:
                 "Front‑end developer with a graphic design background. I've worked on a lot of {exciting} startup websites.",
             start_url: 'https://menthe.tech',
@@ -264,21 +260,7 @@ export default {
             dir: 'ltr',
             theme_color: '#000000',
             background_color: '#000000',
-            // COMBAK: Update pwa categories
-            // W3C compliant categories list
-            // SEE: https://github.com/w3c/manifest/wiki/Categories
-            categories: [
-                'branding',
-                'business', // W3C compliant
-                'design',
-                'development',
-                'lifestyle', // W3C compliant
-                'music', // W3C compliant
-                'personalization', // W3C compliant
-                'social', // W3C compliant
-                'website'
-            ],
-            // COMBAK: Update pwa screenshots
+            categories: ['design', 'development', 'social', 'website', 'web', 'technology'],
             screenshots: [
                 {
                     src: 'https://menthe.tech/share.png',
