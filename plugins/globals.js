@@ -20,6 +20,16 @@ Vue.use(useSuperWindowVue);
 Vue.use(useSuperScrollVue);
 Vue.use(useSuperDOMVue);
 
+Vue.filter('removeParagraphAround', function(value) {
+    if (value.substring(0, 3) === '<p>') {
+        let text = value.substring(3);
+        text = text.slice(0, -4);
+        return text;
+    } else {
+        return value;
+    }
+});
+
 // Set Vue.component here
 Vue.component('Icon', Icon);
 Vue.component('Routing', Routing);

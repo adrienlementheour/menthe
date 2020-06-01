@@ -6,7 +6,9 @@ export default gql`
     query HomePage($lang: SiteLocale) {
         homePage(locale: $lang) {
             entityTitle
-            hero
+            heroFirstPart
+            heroLinkWord
+            heroSecondPart
             asterisk
             clientsTitle
             clientsSubtitle

@@ -1,7 +1,13 @@
 <template>
     <div :class="{ 'is-loaded': !loading }">
         <div class="wrapper-hero container full-content">
-            <div class="hero" v-html="cmsData.hero" />
+            <div class="hero">
+                <h1>
+                    <span v-html="$options.filters.removeParagraphAround(cmsData.heroFirstPart)" />
+                    <span>{{ cmsData.heroLinkWord }}</span>
+                    <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
+                </h1>
+            </div>
             <div class="asterisk">
                 {{ cmsData.asterisk }}
             </div>
@@ -27,8 +33,7 @@
                     >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span
-                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
