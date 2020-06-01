@@ -1,5 +1,6 @@
 <template>
     <div>
+        <PathCanvas v-if="windowWidth >= $breakpoints.list.l && !isTouch" />
         <Loader />
         <Header />
         <nuxt />
@@ -11,19 +12,18 @@
 </template>
 
 <script>
-import { ioPolyfill } from '@stereorepo/sac';
-
 import Loader from '~/components/Layout/Loader';
 import Header from '~/components/Layout/Header';
 import Footer from '~/components/Layout/Footer';
 import Contact from '~/components/Layout/Contact';
+import PathCanvas from '~/components/Layout/Path';
 import Svgs from '~/components/Miscellaneous/Svgs';
 
 // Lazy loaded resources
 const Grid = () => import('~/components/Layout/Grid');
 
 export default {
-    components: { Contact, Footer, Header, Grid, Loader, Svgs },
+    components: { Contact, Footer, Header, Grid, Loader, Svgs, PathCanvas },
     data: () => ({
         isDevEnv: process.env.isDevEnv,
         columnsData: {
@@ -34,17 +34,25 @@ export default {
         colorMode: ''
     }),
     computed: {
+        windowWidth() {
+            if (!this.$store.state.superWindow) return Infinity;
+            return this.$store.state.superWindow.width;
+        },
         manualColorMode() {
             return this.$store.state.manualColorMode;
         },
         manualDarkMode() {
             return this.$store.state.manualDarkMode;
+        },
+        isTouch() {
+            return this.$store.state.isTouch;
         }
     },
     created() {
         this.getColorMode();
     },
     mounted() {
+        window.addEventListener('mousemove', this.mouseMoveDetector);
         this.handleWindow();
         this.handleScroll();
         this.$nextTick(() => {
@@ -57,12 +65,9 @@ export default {
         this.$stereorepo.superWindow.destroyWindow(this.$store);
     },
     methods: {
-        handleDevicesCompatibility() {
-            /**
-             * NOTE: The Intersection Observer API is used by
-             *  LazyImage and LazyVideo directives.
-             */
-            ioPolyfill();
+        mouseMoveDetector() {
+            this.$store.commit('setTouch', false);
+            window.removeEventListener('mousemove', this.mouseMoveDetector);
         },
         handleWindow() {
             this.$stereorepo.superWindow.initializeWindow(this.$store);

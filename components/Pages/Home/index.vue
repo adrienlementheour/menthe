@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{ 'is-loaded': !loading }">
         <div class="wrapper-hero container full-content">
             <div class="hero" v-html="cmsData.hero" />
             <div class="asterisk">
@@ -21,8 +21,9 @@
                         v-for="client in cmsData.clients"
                         :key="client.id"
                         class="client"
-                        @mouseover="linkTool(client.linkedTools)"
+                        @mouseover="linkTool(client.linkedTools, $event)"
                         @mouseleave="clearTools"
+                        @mousemove="updateShapes"
                     >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else class="no-link">
@@ -43,7 +44,13 @@
                 </div>
                 <div class="stack-lines">
                     <div v-for="line in stacks" :key="line.id" class="stack-line">
-                        <span v-for="tool in line" :key="tool.id" class="tool" :class="{ 'is-active': tool.isActive }">
+                        <span
+                            v-for="tool in line"
+                            :id="tool.id"
+                            :key="tool.id"
+                            class="tool"
+                            :class="{ 'is-active': tool.isActive }"
+                        >
                             <span>{{ tool.toolName }}</span>
                         </span>
                     </div>
@@ -68,6 +75,10 @@ export default {
         };
     },
     computed: {
+        windowWidth() {
+            if (!this.$store.state.superWindow) return Infinity;
+            return this.$store.state.superWindow.width;
+        },
         stacks() {
             return this.cmsData.stack.map(line => {
                 return line.stackLine.map(tool => {
@@ -75,17 +86,68 @@ export default {
                     return tool;
                 });
             });
+        },
+        paths() {
+            return this.$store.state.paths;
+        },
+        scrollTop() {
+            return this.$store.state.scroll.scrollTop;
+        },
+        isTouch() {
+            return this.$store.state.isTouch;
+        },
+        loading() {
+            return this.$store.state.loading;
+        }
+    },
+    watch: {
+        scrollTop() {
+            this.clearTools();
         }
     },
     methods: {
-        linkTool(linkedTools) {
+        linkTool(linkedTools, e) {
+            if (this.windowWidth < this.$breakpoints.list.l && this.isTouch) return;
             const tools = linkedTools.map(tool => {
                 return tool.id;
             });
             this.activedTools = tools;
+            this.addPaths(e.clientX, e.clientY);
+        },
+        addPaths(x2, y2) {
+            const shapes = this.activedTools.map(tool => {
+                const domElement = document.getElementById(tool);
+                const bbox = domElement.getBoundingClientRect();
+                const x = bbox.left - 4;
+                const y = bbox.top - 4 + bbox.height / 2;
+
+                return {
+                    x,
+                    y,
+                    x2,
+                    y2
+                };
+            });
+
+            this.$store.commit('addShapes', shapes);
+        },
+        updateShapes(e) {
+            if (this.windowWidth < this.$breakpoints.list.l && this.isTouch) return;
+            const x2 = e.clientX;
+            const y2 = e.clientY;
+            const updatedShapes = this.paths.map(({ x, y }) => {
+                return {
+                    x,
+                    y,
+                    x2,
+                    y2
+                };
+            });
+            this.$store.commit('setShapes', updatedShapes);
         },
         clearTools() {
             this.activedTools = [];
+            this.$store.commit('clearShapes');
         }
     }
 };
@@ -147,6 +209,7 @@ export default {
     }
 }
 .clients {
+    pointer-events: none;
     > span {
         &::after {
             content: ', ';
@@ -165,6 +228,10 @@ export default {
     > * {
         text-decoration: none;
         white-space: nowrap;
+        pointer-events: all;
+    }
+    > span {
+        user-select: none;
     }
     .no-link {
         position: relative;
@@ -203,6 +270,9 @@ export default {
     top: 0.15em;
 }
 .stack-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     > span {
         margin-right: 7px;
         &::after {

@@ -1,7 +1,9 @@
 export const state = () => ({
     loading: true,
     manualColorMode: false,
-    manualDarkMode: true
+    manualDarkMode: true,
+    paths: [],
+    isTouch: true
 });
 
 // export const getters = () => {};
@@ -18,6 +20,18 @@ export const mutations = {
     },
     invertManualDarkMode(state) {
         state.manualDarkMode = !state.manualDarkMode;
+    },
+    addShapes(state, shapes) {
+        state.paths = state.paths.concat(shapes);
+    },
+    clearShapes(state) {
+        state.paths = [];
+    },
+    setShapes(state, shapes) {
+        state.paths = shapes;
+    },
+    setTouch(state, isTouch) {
+        state.isTouch = isTouch;
     }
 };
 
