@@ -295,9 +295,9 @@ export default {
     &::before {
         content: '';
         position: absolute;
-        top: -5px;
+        top: 3px;
         right: -4px;
-        bottom: 0;
+        bottom: 8px;
         left: -4px;
         border: 1px solid var(--tertiary);
         opacity: 0;
