@@ -4,7 +4,12 @@
             <div class="hero">
                 <h1>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroFirstPart)" />
-                    <span>{{ cmsData.heroLinkWord }}</span>
+                    <span
+                        class="hero-link-word"
+                        @mouseover="linkClients"
+                        @mouseleave="clearPath"
+                        @mousemove="updateShapes"
+                        >{{ cmsData.heroLinkWord }}</span>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
                 </h1>
             </div>
@@ -14,7 +19,7 @@
         </div>
         <div class="wrapper-clients-stack container full-content">
             <div class="wrapper-presentation clients">
-                <div class="square-block">
+                <div ref="clientBlock" class="square-block">
                     <h3 class="square-title">
                         {{ cmsData.clientsTitle }}
                     </h3>
@@ -33,7 +38,8 @@
                     >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span
+                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
@@ -76,7 +82,9 @@ export default {
     },
     data() {
         return {
-            activedTools: []
+            activedTools: [],
+            clientBlock: null,
+            clientShape: {}
         };
     },
     computed: {
@@ -109,6 +117,9 @@ export default {
         scrollTop() {
             this.clearTools();
         }
+    },
+    mounted() {
+        this.clientBlock = this.$refs.clientBlock;
     },
     methods: {
         linkTool(linkedTools, e) {
@@ -153,6 +164,27 @@ export default {
         clearTools() {
             this.activedTools = [];
             this.$store.commit('clearShapes');
+        },
+        linkClients(e) {
+            if (this.windowWidth < this.$breakpoints.list.l && this.isTouch) return;
+            const bbox = this.clientBlock.getBoundingClientRect();
+            const x = bbox.left + bbox.width / 2;
+            const offsetTopBox = this.windowWidth < this.$breakpoints.list.xl ? 15 : 17;
+            const y = bbox.top - offsetTopBox;
+            const x2 = e.clientX;
+            const y2 = e.clientY;
+
+            this.clientShape = {
+                x,
+                y,
+                x2,
+                y2
+            };
+
+            this.$store.commit('addShapes', this.clientShape);
+        },
+        clearPath() {
+            this.$store.commit('clearShapes');
         }
     }
 };
@@ -174,6 +206,9 @@ export default {
     /deep/ strong {
         font-weight: 800;
     }
+}
+.hero-link-word {
+    user-select: none;
 }
 .asterisk {
     margin-top: $line-height;
