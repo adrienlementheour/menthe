@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="[{ 'is-loaded': !loading }, { 'no-js': noJS }]">
         <PathCanvas v-if="windowWidth >= $breakpoints.list.l && !isTouch" />
         <Loader />
         <Header />
@@ -31,7 +31,8 @@ export default {
             s: 5,
             xs: 2
         },
-        colorMode: ''
+        colorMode: '',
+        noJS: true
     }),
     computed: {
         windowWidth() {
@@ -46,6 +47,9 @@ export default {
         },
         isTouch() {
             return this.$store.state.isTouch;
+        },
+        loading() {
+            return this.$store.state.loading;
         }
     },
     created() {
@@ -55,6 +59,7 @@ export default {
         window.addEventListener('mousemove', this.mouseMoveDetector);
         this.handleWindow();
         this.handleScroll();
+        this.noJS = false;
         this.$nextTick(() => {
             this.$store.commit('setLoading', false);
         });

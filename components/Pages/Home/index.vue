@@ -1,6 +1,6 @@
 <template>
-    <div :class="{ 'is-loaded': !loading }">
-        <div class="wrapper-hero container full-content">
+    <div>
+        <div class="wrapper-hero container full-content initial-anim">
             <div class="hero">
                 <h1>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroFirstPart)" />
@@ -9,7 +9,8 @@
                         @mouseover="linkClients"
                         @mouseleave="clearPath"
                         @mousemove="updateShapes"
-                        >{{ cmsData.heroLinkWord }}</span>
+                        >{{ cmsData.heroLinkWord }}</span
+                    >
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
                 </h1>
             </div>
@@ -17,7 +18,7 @@
                 {{ cmsData.asterisk }}
             </div>
         </div>
-        <div class="wrapper-clients-stack container full-content">
+        <div class="wrapper-clients-stack container full-content initial-anim">
             <div class="wrapper-presentation clients">
                 <div ref="clientBlock" class="square-block">
                     <h3 class="square-title">
@@ -38,8 +39,7 @@
                     >
                         <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span
-                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
@@ -108,9 +108,6 @@ export default {
         },
         isTouch() {
             return this.$store.state.isTouch;
-        },
-        loading() {
-            return this.$store.state.loading;
         }
     },
     watch: {
@@ -194,6 +191,7 @@ export default {
 .wrapper-hero {
     margin-top: $line-height;
     margin-bottom: #{3 * $line-height};
+    transition-delay: 0.4s;
 }
 .hero {
     font-feature-settings: 'salt' on;
@@ -219,6 +217,7 @@ export default {
 .wrapper-clients-stack {
     display: flex;
     flex-direction: column;
+    transition-delay: 0.4s;
 }
 .wrapper-presentation {
     margin-bottom: 3 * $line-height;

@@ -1,5 +1,5 @@
 <template>
-    <div class="contact">
+    <div class="contact initial-anim">
         <a class="contact-link" href="mailto:hi@menthe.tech">
             <span class="big-title">
                 {{ contactData.bigText }}
@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contact {
+    transition-delay: 0.4s;
+}
 .contact-link {
     display: block;
     padding: #{2 * $line-height} 0;
