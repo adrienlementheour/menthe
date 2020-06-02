@@ -9,6 +9,8 @@
                     :key="link.id"
                     class="link-arrow social-link"
                     :link="{ data: link, type: 'from-cms' }"
+                    target="_blank"
+                    rel="noopener nofollow noreferrer"
                 />
             </div>
         </div>

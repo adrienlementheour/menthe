@@ -9,8 +9,7 @@
                         @mouseover="linkClients"
                         @mouseleave="clearPath"
                         @mousemove="updateShapes"
-                        >{{ cmsData.heroLinkWord }}</span
-                    >
+                        >{{ cmsData.heroLinkWord }}</span>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
                 </h1>
             </div>
@@ -37,9 +36,15 @@
                         @mouseleave="clearTools"
                         @mousemove="updateShapes"
                     >
-                        <Routing v-if="client.hasLink" :link="{ data: client.clientLink, type: 'from-cms' }" />
+                        <Routing
+                            v-if="client.hasLink"
+                            :link="{ data: client.clientLink, type: 'from-cms' }"
+                            target="_blank"
+                            rel="noopener nofollow noreferrer"
+                        />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span
+                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>

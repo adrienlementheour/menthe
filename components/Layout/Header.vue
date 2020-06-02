@@ -21,11 +21,21 @@
         </div>
         <div class="column one initial-anim">
             {{ headerData.columnOne }}
-            <Routing class="link-arrow framed" :link="{ data: headerData.columnOneLink, type: 'from-cms' }" />
+            <Routing
+                class="link-arrow framed"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                :link="{ data: headerData.columnOneLink, type: 'from-cms' }"
+            />
         </div>
         <div class="column two initial-anim">
             {{ headerData.columnTwo }}
-            <Routing class="link-arrow underlined" :link="{ data: headerData.columnTwoLink, type: 'from-cms' }" />
+            <Routing
+                class="link-arrow underlined"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                :link="{ data: headerData.columnTwoLink, type: 'from-cms' }"
+            />
         </div>
     </header>
 </template>
