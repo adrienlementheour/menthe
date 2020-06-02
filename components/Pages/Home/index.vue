@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="wrapper-hero container full-content initial-anim">
+        <div class="wrapper-hero container full-content">
             <div class="hero">
                 <h1>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroFirstPart)" />
@@ -17,7 +17,7 @@
                 {{ cmsData.asterisk }}
             </div>
         </div>
-        <div class="wrapper-clients-stack container full-content initial-anim">
+        <div class="wrapper-clients-stack container full-content">
             <div class="wrapper-presentation clients">
                 <div ref="clientBlock" class="square-block">
                     <h3 class="square-title">
@@ -196,7 +196,6 @@ export default {
 .wrapper-hero {
     margin-top: $line-height;
     margin-bottom: #{3 * $line-height};
-    transition-delay: 0.4s;
 }
 .hero {
     font-feature-settings: 'salt' on;
@@ -222,7 +221,6 @@ export default {
 .wrapper-clients-stack {
     display: flex;
     flex-direction: column;
-    transition-delay: 0.4s;
 }
 .wrapper-presentation {
     margin-bottom: 3 * $line-height;

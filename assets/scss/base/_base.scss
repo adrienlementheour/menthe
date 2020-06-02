@@ -234,14 +234,6 @@ a {
     }
 }
 
-.initial-anim {
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-    .is-loaded & {
-        opacity: 1;
-    }
-}
-
 @media (min-width: $desktop) {
     .square-title {
         font-size: 2.4rem;

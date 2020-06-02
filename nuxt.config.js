@@ -154,7 +154,8 @@ export default {
     /*
      ** Customize the progress-bar
      */
-    loading: '~/components/Layout/Loader.vue',
+    // loading: '~/components/Layout/Loader.vue',
+    loading: false,
     /*
      ** Global CSS
      */
