@@ -137,6 +137,11 @@ export default {
                 rel: 'mask-icon',
                 href: '/safari-pinned-tab.svg',
                 color: '#242424'
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href: '/apple-touch-icon.png'
             }
         ]
     },
