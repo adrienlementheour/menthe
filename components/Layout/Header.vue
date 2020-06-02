@@ -132,6 +132,14 @@ export default {
     z-index: 1;
     &:focus {
         outline: none;
+        background: var(--tertiary);
+        .wrapper-rays {
+            > span {
+                &::before {
+                    background: var(--tertiary);
+                }
+            }
+        }
     }
     .wrapper-rays {
         position: absolute;

@@ -37,6 +37,12 @@ export default {
     > span {
         display: block;
     }
+    &:focus {
+        background: var(--tertiary);
+        .small-title {
+            color: var(--secondary);
+        }
+    }
 }
 .big-title {
     font-weight: 800;

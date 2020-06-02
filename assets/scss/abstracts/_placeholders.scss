@@ -9,9 +9,3 @@
         filter: saturate(200%);
     }
 }
-
-%outline {
-    &:focus {
-        outline: thin dashed $black;
-    }
-}

@@ -270,9 +270,26 @@ export default {
     font-size: 2.2rem;
     font-weight: 800;
     > * {
+        position: relative;
         text-decoration: none;
         white-space: nowrap;
         pointer-events: all;
+        &:focus {
+            &::before {
+                opacity: 1;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -4px;
+            bottom: 0;
+            left: -4px;
+            background: var(--tertiary);
+            opacity: 0;
+            z-index: -1;
+        }
     }
     > span {
         user-select: none;

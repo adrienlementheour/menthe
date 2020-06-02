@@ -67,6 +67,7 @@ export default {
     font-size: 1.2rem;
 }
 .social {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -74,6 +75,22 @@ export default {
         margin-right: 20px;
         &:last-child {
             margin-right: 0;
+        }
+        &:focus {
+            &::before {
+                opacity: 1;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -4px;
+            bottom: 0;
+            left: -4px;
+            background: var(--tertiary);
+            opacity: 0;
+            z-index: -1;
         }
     }
 }

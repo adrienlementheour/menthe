@@ -134,17 +134,18 @@ hr {
 
 /******* LIENS / BOUTONS *******/
 
-button,
-input {
-    @extend %outline;
-}
-
 a {
     color: inherit;
-    @extend %outline;
-    &:active {
-        filter: saturate(200%);
+    transition: opacity 0.15s ease-out;
+    &:focus {
+        outline: none;
     }
+    &:hover {
+        opacity: 0.6;
+    }
+    // &:active {
+    //     filter: saturate(200%);
+    // }
 }
 
 /******* CLASSES GENERALES *******/
@@ -182,13 +183,53 @@ a {
             left: -4px;
             border: 1px solid var(--tertiary);
         }
+        > span {
+            &::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                right: -4px;
+                bottom: 0;
+                left: -4px;
+                background: var(--tertiary);
+                opacity: 0;
+                z-index: -1;
+            }
+        }
+        &:focus {
+            > span {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
     }
     &.underlined {
         &::before {
             right: 0;
-            bottom: 1px;
+            bottom: 0;
             left: 0;
             border-top: 1px solid var(--tertiary);
+        }
+        > span {
+            &::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                right: -4px;
+                bottom: 0;
+                left: -4px;
+                background: var(--tertiary);
+                opacity: 0;
+                z-index: -1;
+            }
+        }
+        &:focus {
+            > span {
+                &::before {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
