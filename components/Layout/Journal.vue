@@ -1,5 +1,5 @@
 <template>
-    <div class="journal">
+    <div class="journal initial-anim">
         <div class="content-journal container full-content">
             <div class="wrapper-title-journal">
                 <h3 class="square-title">
@@ -67,6 +67,7 @@ export default {
     padding: #{2 * $line-height} 0;
     border-top: 1px solid var(--tertiary);
     border-bottom: 1px solid var(--tertiary);
+    transition-delay: 0.4s;
 }
 .finding {
     margin-top: $line-height;

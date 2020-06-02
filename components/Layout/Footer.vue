@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="footer initial-anim">
         <div class="footer-content container">
             <div class="footer-text" v-html="footerData.text" />
             <div class="copyright" v-html="footerData.copyright" />
@@ -34,6 +34,7 @@ export default {
     padding-top: $line-height;
     padding-bottom: $line-height * 2;
     border-top: 1px solid var(--tertiary);
+    transition-delay: 0.4s;
 }
 
 .footer-content {

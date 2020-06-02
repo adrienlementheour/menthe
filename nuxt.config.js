@@ -49,6 +49,15 @@ export default {
         htmlAttrs: {
             lang: 'fr'
         },
+        noscript: [
+            {
+                innerHTML: '<link rel="stylesheet" type="text/css" href="nojs.css"/>',
+                hid: 'noscriptstyle'
+            }
+        ],
+        __dangerouslyDisableSanitizersByTagID: {
+            noscriptstyle: ['innerHTML']
+        },
         meta: [
             { charset: 'utf-8' },
             {

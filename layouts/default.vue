@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div :class="{ 'is-loaded': !loading }">
         <PathCanvas v-if="windowWidth >= $breakpoints.list.l && !isTouch" />
+        <Loader />
         <Header />
         <nuxt />
         <Contact />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Loader from '~/components/Layout/Loader';
 import Header from '~/components/Layout/Header';
 import Footer from '~/components/Layout/Footer';
 import Contact from '~/components/Layout/Contact';
@@ -21,7 +23,7 @@ import Svgs from '~/components/Miscellaneous/Svgs';
 const Grid = () => import('~/components/Layout/Grid');
 
 export default {
-    components: { Contact, Footer, Header, Grid, Svgs, PathCanvas },
+    components: { Contact, Footer, Header, Grid, Loader, Svgs, PathCanvas },
     data: () => ({
         isDevEnv: process.env.isDevEnv,
         columnsData: {

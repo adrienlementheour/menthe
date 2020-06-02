@@ -1,7 +1,7 @@
 <template>
     <header class="main-header container full-content">
-        <div class="header-title" v-html="headerData.title" />
-        <div class="wrapper-mode">
+        <div class="header-title initial-anim" v-html="headerData.title" />
+        <div class="wrapper-mode initial-anim">
             <button type="button" class="btn-mode" aria-label="Toggle dark mode" @click="toggleDarkMode">
                 <span class="wrapper-rays">
                     <span />
@@ -19,7 +19,7 @@
                 </span>
             </button>
         </div>
-        <div class="column one">
+        <div class="column one initial-anim">
             {{ headerData.columnOne }}
             <Routing
                 class="link-arrow framed"
@@ -28,7 +28,7 @@
                 :link="{ data: headerData.columnOneLink, type: 'from-cms' }"
             />
         </div>
-        <div class="column two">
+        <div class="column two initial-anim">
             {{ headerData.columnTwo }}
             <Routing
                 class="link-arrow underlined"
@@ -108,12 +108,19 @@ export default {
     display: flex;
     justify-content: flex-end;
     width: 50px;
+    transition-delay: 0.3s;
 }
 .column {
     flex: 0 0 auto;
     width: 100%;
     margin-top: $line-height;
     font-size: 1.6rem;
+    &.one {
+        transition-delay: 0.1s;
+    }
+    &.two {
+        transition-delay: 0.2s;
+    }
 }
 .btn-mode {
     position: relative;
