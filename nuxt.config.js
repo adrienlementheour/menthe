@@ -31,6 +31,12 @@ const websiteUrl = `https://${process.env.NOW_URL}` || `http://${process.env.HOS
 
 export default {
     mode: 'universal',
+    render: {
+        http2: {
+            push: true,
+            pushAssets: null
+        }
+    },
     /*
      ** Environnement variables shared for the client and server-side
      */
