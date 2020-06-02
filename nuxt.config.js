@@ -266,6 +266,18 @@ export default {
             theme_color: '#000000',
             background_color: '#000000',
             categories: ['design', 'development', 'social', 'website', 'web', 'technology'],
+            icons: [
+                {
+                    src: 'https://menthe.tech/icon-small.png',
+                    sizes: '192x192',
+                    type: 'image/png'
+                },
+                {
+                    src: 'https://menthe.tech/icon-large.png',
+                    sizes: '512x512',
+                    type: 'image/png'
+                }
+            ],
             screenshots: [
                 {
                     src: 'https://menthe.tech/share.png',
