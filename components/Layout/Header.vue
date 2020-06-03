@@ -147,8 +147,8 @@ export default {
         top: 50%;
         left: 50%;
         display: block;
-        width: 45px;
-        height: 45px;
+        width: 44px;
+        height: 44px;
         margin: -22px 0 0 -24px;
         transform-origin: 50% 50%;
         transform: scale(1);
