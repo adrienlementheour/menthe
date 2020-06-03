@@ -29,6 +29,9 @@ const isDevEnv = stateEnv === 'development';
 const isProdEnv = stateEnv === 'production';
 const websiteUrl = `https://${process.env.NOW_URL}` || `http://${process.env.HOST}:${process.env.PORT}`;
 
+// ie polyfill features
+const features = ['Array.from', 'NodeList.prototype.forEach'].join('%2C');
+
 export default {
     mode: 'universal',
     render: {
@@ -58,6 +61,12 @@ export default {
         __dangerouslyDisableSanitizersByTagID: {
             noscriptstyle: ['innerHTML']
         },
+        script: [
+            {
+                nomodule: 'true',
+                src: `https://polyfill.io/v3/polyfill.min.js?features=${features}`
+            }
+        ],
         meta: [
             { charset: 'utf-8' },
             {
