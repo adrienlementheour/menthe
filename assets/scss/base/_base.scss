@@ -83,6 +83,19 @@ em {
 blockquote {
     position: relative;
     padding: 0;
+    > p{
+        text-indent: -0.4em;
+        @supports ( hanging-punctuation: first) {
+            text-indent: 0;
+            hanging-punctuation: first;
+        }
+        &::before {
+            content: '“';
+        }
+        &::after {
+            content: '”';
+        }
+    }
 }
 
 ol,

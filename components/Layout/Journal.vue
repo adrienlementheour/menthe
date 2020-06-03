@@ -29,7 +29,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="finding-content" v-html="finding.content" />
+                    <Routing
+                        v-if="finding.hasLink"
+                        :link="{ data: finding.findingLink, type: 'from-cms' }"
+                        target="_blank"
+                        rel="noopener nofollow noreferrer"
+                        class="finding-content link-arrow"
+                        v-html="finding.content"
+                    />
+                    <div v-else class="finding-content" v-html="finding.content" />
                 </div>
             </div>
         </div>
@@ -81,6 +89,8 @@ export default {
     font-weight: 900;
 }
 .wrapper-date-category {
+    position: relative;
+    top: 0.1em;
     display: flex;
     align-items: baseline;
     > div {
@@ -110,6 +120,35 @@ export default {
     }
 }
 .finding-content {
+    &.link-arrow {
+        position: relative;
+        &:focus {
+            &::before {
+                opacity: 1;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -6px;
+            bottom: 0;
+            left: -6px;
+            background: var(--tertiary);
+            opacity: 0;
+            z-index: -1;
+        }
+        &::after {
+            content: none;
+            margin: 0;
+        }
+        /deep/ p {
+            &::after {
+                content: '\2197\FE0E';
+                margin-left: 0.3em;
+            }
+        }
+    }
     /deep/ p {
         margin: 0;
     }
@@ -164,6 +203,14 @@ export default {
     .finding-content {
         order: 2;
         width: calc(#{var(--col)} * 5);
+        &.link-arrow {
+            &::before {
+                top: -4px;
+                right: 0;
+                bottom: -2px;
+                left: 0;
+            }
+        }
     }
     .finding-number {
         order: 3;
@@ -171,6 +218,9 @@ export default {
     }
 }
 @media (min-width: $desktop) {
+    .wrapper-date-category {
+        top: 0.15em;
+    }
     .finding-title {
         font-size: 2.4rem;
     }
