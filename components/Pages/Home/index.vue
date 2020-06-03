@@ -9,8 +9,7 @@
                         @mouseover="linkClients"
                         @mouseleave="clearPath"
                         @mousemove="updateShapes"
-                        >{{ cmsData.heroLinkWord }}</span
-                    >
+                        >{{ cmsData.heroLinkWord }}</span>
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
                 </h1>
             </div>
@@ -44,7 +43,8 @@
                             rel="noopener nofollow noreferrer"
                         />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span
+                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
@@ -430,7 +430,7 @@ export default {
 
 @media (min-width: $desktop) {
     .hero {
-        font-size: 7.2rem;
+        font-size: 6rem;
         line-height: 3 * $line-height;
     }
     .asterisk {
@@ -463,6 +463,17 @@ export default {
             margin-top: #{1 * $line-height};
             margin-bottom: #{3 * $line-height};
         }
+    }
+    .hero {
+        font-size: 7.2rem;
+        line-height: 3 * $line-height;
+    }
+}
+
+@media (min-width: $desktop-xxl) {
+    .hero {
+        font-size: 8rem;
+        line-height: 4 * $line-height;
     }
 }
 </style>
