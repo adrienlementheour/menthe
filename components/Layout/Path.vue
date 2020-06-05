@@ -46,7 +46,6 @@ export default {
     methods: {
         drawPath(path) {
             this.drawLine(path);
-            // this.drawCircle(path.x, path.y);
             this.drawCircle(path.x2, path.y2);
         },
         drawCircle(x, y) {

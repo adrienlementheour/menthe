@@ -136,7 +136,7 @@ export default {
             const shapes = this.activedTools.map(tool => {
                 const domElement = document.getElementById(tool);
                 const bbox = domElement.getBoundingClientRect();
-                const x = bbox.left - 4;
+                const x = bbox.left - 3;
                 const y = bbox.top - 4 + bbox.height / 2;
 
                 return {
