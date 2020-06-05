@@ -12,7 +12,7 @@
             <div class="findings">
                 <div v-for="(finding, index) in displayedFindings" :key="finding.id" class="finding">
                     <div class="finding-number">
-                        <span>#</span><span>{{ nbFindings - index }}</span>
+                        <span>#</span><span>{{ index + 1 }}</span>
                     </div>
                     <div class="finding-desc">
                         <div class="finding-title">
@@ -64,7 +64,9 @@ export default {
         };
     },
     mounted() {
-        this.displayedFindings = this.display ? this.content.findings.slice(0, this.display) : this.content.findings;
+        this.displayedFindings = this.display
+            ? this.content.findings.reverse().slice(0, this.display)
+            : this.content.findings.reverse();
         this.nbFindings = this.content.findings.length;
     }
 };
