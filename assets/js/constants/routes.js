@@ -1,5 +1,9 @@
 // 🚦Routing constants
 export const routes = {
+    home: {
+        i18nFormat: 'index',
+        routerFormat: 'index'
+    },
     journalPage: {
         i18nFormat: 'journal/index',
         routerFormat: 'journal'

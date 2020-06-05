@@ -12,6 +12,9 @@ export const layoutDataQuery = gql`
     query Layout($lang: SiteLocale) {
         header(locale: $lang) {
             title
+            titleLink {
+                ...link
+            }
             columnOne
             columnOneLink {
                 ...link

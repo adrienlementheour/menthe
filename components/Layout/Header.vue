@@ -1,6 +1,10 @@
 <template>
     <header class="main-header container full-content">
-        <div class="header-title initial-anim" v-html="headerData.title" />
+        <div class="header-title initial-anim">
+            <nuxt-link class="header-title-link" to="./" :aria-label="headerData.titleLink.linkTitle">
+                <span class="header-title-content" v-html="$options.filters.removeParagraphAround(headerData.title)" />
+            </nuxt-link>
+        </div>
         <div class="wrapper-mode initial-anim">
             <button type="button" class="btn-mode" aria-label="Toggle dark mode" @click="toggleDarkMode">
                 <span class="wrapper-rays">
@@ -89,18 +93,64 @@ export default {
 <style lang="scss" scoped>
 .main-header {
     display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-top: #{2 * $line-height};
     padding-bottom: #{2 * $line-height};
 }
-.header-title {
+.header-title-link {
+    position: relative;
     flex: 0 0 auto;
     width: calc(100% - 50px);
     font-size: 1.6rem;
     font-weight: 800;
-    /deep/ p {
-        margin: 0;
+    text-decoration: none;
+    transition: opacity 0.15s ease-out;
+    &:focus {
+        outline: none;
+        &::before {
+            opacity: 1;
+        }
+    }
+    &:hover {
+        opacity: 0.6;
+        .header-title-content {
+            /deep/ span {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        z-index: -1;
+        right: -4px;
+        left: -4px;
+        bottom: 0;
+        background: var(--tertiary);
+        opacity: 0;
+    }
+}
+.header-title-content {
+    /deep/ span {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            z-index: -1;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: var(--tertiary);
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.15s ease-out;
+        }
     }
 }
 .wrapper-mode {
@@ -255,7 +305,7 @@ export default {
     .column.one {
         margin-right: calc(#{var(--col)});
     }
-    .header-title {
+    .header-title-link {
         font-size: 2rem;
     }
     .column {
