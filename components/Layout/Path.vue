@@ -51,22 +51,27 @@ export default {
         },
         drawCircle(x, y) {
             this.ctx.beginPath();
-            this.ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            this.ctx.arc(
+                x * window.devicePixelRatio,
+                y * window.devicePixelRatio,
+                5 * window.devicePixelRatio,
+                0,
+                2 * Math.PI
+            );
             this.ctx.fill();
         },
         drawLine({ x, y, x2, y2 }) {
             this.ctx.beginPath();
-            this.ctx.moveTo(x, y);
-            this.ctx.lineTo(x2, y2);
+            this.ctx.moveTo(x * window.devicePixelRatio, y * window.devicePixelRatio);
+            this.ctx.lineTo(x2 * window.devicePixelRatio, y2 * window.devicePixelRatio);
             this.ctx.stroke();
         },
         render() {
             // On clear le canvas
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            // this.ctx.globalCompositeOperation = 'soft-light';
             this.ctx.fillStyle = '#01A85E';
             this.ctx.strokeStyle = '#01A85E';
-            this.ctx.lineWidth = 1;
+            this.ctx.lineWidth = 1 * window.devicePixelRatio;
             // On dessine toutes les formes
             this.drawEverything();
             requestAnimationFrame(() => {
@@ -82,8 +87,8 @@ export default {
         },
         updateCanvasSize() {
             const bbox = this.canvas.getBoundingClientRect();
-            this.canvas.width = bbox.width;
-            this.canvas.height = bbox.height;
+            this.canvas.width = bbox.width * window.devicePixelRatio;
+            this.canvas.height = bbox.height * window.devicePixelRatio;
         }
     }
 };
