@@ -117,8 +117,10 @@ export default {
         opacity: 0.6;
         .header-title-content {
             /deep/ span {
-                &::before {
-                    opacity: 1;
+                > span {
+                    &::before {
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -137,19 +139,19 @@ export default {
 }
 .header-title-content {
     /deep/ span {
-        position: relative;
-        &::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            z-index: -1;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            background: var(--tertiary);
-            opacity: 0;
-            z-index: 1;
-            transition: opacity 0.15s ease-out;
+        white-space: nowrap;
+        > span {
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border-top: 1px solid var(--tertiary);
+                opacity: 0;
+                transition: opacity 0.15s ease-out;
+            }
         }
     }
 }
