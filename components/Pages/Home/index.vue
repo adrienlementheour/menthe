@@ -9,7 +9,8 @@
                         @mouseover="linkClients"
                         @mouseleave="clearPath"
                         @mousemove="updateShapes"
-                        >{{ cmsData.heroLinkWord }}</span>
+                        >{{ cmsData.heroLinkWord }}</span
+                    >
                     <span v-html="$options.filters.removeParagraphAround(cmsData.heroSecondPart)" />
                 </h1>
             </div>
@@ -17,7 +18,7 @@
                 {{ cmsData.asterisk }}
             </div>
         </div>
-        <div class="wrapper-clients-stack container full-content initial-anim">
+        <div class="wrapper-clients-stack container initial-anim">
             <div class="wrapper-presentation clients">
                 <div ref="clientBlock" class="square-block">
                     <h3 class="square-title">
@@ -27,7 +28,7 @@
                         {{ cmsData.clientsSubtitle }}
                     </h4>
                 </div>
-                <div class="clients">
+                <div class="clients-list">
                     <span
                         v-for="client in cmsData.clients"
                         :key="client.id"
@@ -43,8 +44,7 @@
                             rel="noopener nofollow noreferrer"
                         />
                         <span v-else class="no-link">
-                            <span>{{ client.clientName }}</span
-                            ><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
+                            <span>{{ client.clientName }}</span><span class="no-link-label">{{ cmsData.noLinkLabel }}</span>
                         </span>
                     </span>
                 </div>
@@ -230,6 +230,8 @@ export default {
 .square-block {
     position: relative;
     margin-bottom: 2 * $line-height;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
     z-index: 1;
     &::before,
     &::after {
@@ -245,14 +247,18 @@ export default {
     }
     &::after {
         top: -15px;
-        right: calc(#{var(--gutter)} * -1);
+        // right: calc(#{var(--gutter)} * -1);
+        right: 0;
         bottom: -10px;
-        left: calc(#{var(--gutter)} * -1);
+        // left: calc(#{var(--gutter)} * -1);
+        left: 0;
         border: 1px solid var(--tertiary);
         background: var(--primary);
     }
 }
-.clients {
+.clients-list {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
     pointer-events: none;
     > span {
         &::after {
@@ -328,6 +334,8 @@ export default {
 }
 .stack-lines {
     position: relative;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
     top: 0.15em;
 }
 .stack-line {
@@ -400,15 +408,13 @@ export default {
     }
     .wrapper-presentation {
         flex: 0 0 auto;
-        padding-left: var(--gutter);
-        padding-right: var(--gutter);
+
         &.clients {
             width: calc(#{var(--col)} * 5);
             .square-block {
-                width: percentage(2/3);
                 &::before {
                     width: 100vw;
-                    left: calc(#{var(--gutter)} * -1 - 20px);
+                    left: calc(-22px);
                     right: auto;
                 }
             }
@@ -468,12 +474,29 @@ export default {
         font-size: 7.2rem;
         line-height: 3 * $line-height;
     }
+    .wrapper-presentation {
+        &.clients {
+            .square-block {
+                width: percentage(4/5);
+            }
+        }
+    }
 }
 
 @media (min-width: $desktop-xxl) {
     .hero {
         font-size: 8rem;
         line-height: 4 * $line-height;
+    }
+}
+
+@media (min-width: '1500px') {
+    .wrapper-presentation {
+        &.clients {
+            .square-block {
+                width: percentage(3/5);
+            }
+        }
     }
 }
 </style>
