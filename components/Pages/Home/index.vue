@@ -400,6 +400,9 @@ export default {
         font-size: 2rem;
     }
     .wrapper-clients-stack {
+        .ie11 & {
+            flex-direction: column;
+        }
         flex-direction: row;
         justify-content: space-between;
         align-items: baseline;
@@ -411,6 +414,9 @@ export default {
 
         &.clients {
             width: calc(#{var(--col)} * 5);
+            .ie11 & {
+                width: 100%;
+            }
             .square-block {
                 &::before {
                     width: 100vw;
@@ -421,6 +427,9 @@ export default {
         }
         &.stack {
             width: calc(#{var(--col)} * 3);
+            .ie11 & {
+                width: 100%;
+            }
             .square-block {
                 &::before {
                     content: none;

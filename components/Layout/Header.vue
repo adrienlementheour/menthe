@@ -161,6 +161,9 @@ export default {
     justify-content: flex-end;
     width: 50px;
     transition-delay: 0.3s;
+    .ie11 & {
+        display: none;
+    }
 }
 .column {
     flex: 0 0 auto;

@@ -194,6 +194,9 @@ export default {
     .finding {
         display: flex;
         align-items: baseline;
+        .ie11 & {
+            flex-direction: column;
+        }
         > div {
             flex: 0 0 auto;
         }
@@ -201,10 +204,18 @@ export default {
     .finding-desc {
         order: 1;
         width: calc(#{var(--col)} * 3);
+        .ie11 & {
+            order: 2;
+            width: 100%;
+        }
     }
     .finding-content {
         order: 2;
         width: calc(#{var(--col)} * 5);
+        .ie11 & {
+            width: 100%;
+            order: 3;
+        }
         &.link-arrow {
             &::before {
                 top: -4px;
@@ -217,6 +228,10 @@ export default {
     .finding-number {
         order: 3;
         width: calc(#{var(--col)} * 1);
+        .ie11 & {
+            order: 1;
+            width: 100%;
+        }
     }
 }
 @media (min-width: $desktop) {

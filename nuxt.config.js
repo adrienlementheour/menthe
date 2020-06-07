@@ -30,7 +30,7 @@ const isProdEnv = stateEnv === 'production';
 const websiteUrl = `https://${process.env.NOW_URL}` || `http://${process.env.HOST}:${process.env.PORT}`;
 
 // ie polyfill features
-const features = ['Array.from', 'NodeList.prototype.forEach', 'Function.prototype.bind'].join('%2C');
+const features = ['NodeList.prototype.forEach', 'Function.prototype.bind', 'fetch'].join('%2C');
 
 export default {
     mode: 'universal',

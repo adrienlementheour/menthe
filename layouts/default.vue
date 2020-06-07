@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'is-loaded': !loading }">
+    <div :class="[{ 'is-loaded': !loading }, { ie11: isIE11 }]">
         <PathCanvas v-if="windowWidth >= $breakpoints.list.l && !isTouch" />
         <Loader />
         <Header />
@@ -18,6 +18,7 @@ import Footer from '~/components/Layout/Footer';
 import Contact from '~/components/Layout/Contact';
 import PathCanvas from '~/components/Layout/Path';
 import Svgs from '~/components/Miscellaneous/Svgs';
+import { isIe11 } from '@stereorepo/sac';
 
 // Lazy loaded resources
 const Grid = () => import('~/components/Layout/Grid');
@@ -32,7 +33,8 @@ export default {
             xs: 2
         },
         colorMode: '',
-        noJS: true
+        noJS: true,
+        isIE11: false
     }),
     computed: {
         windowWidth() {
@@ -60,6 +62,7 @@ export default {
         this.handleWindow();
         this.handleScroll();
         this.noJS = false;
+        this.isIE11 = isIe11();
         this.$nextTick(() => {
             this.$store.commit('setLoading', false);
         });
