@@ -89,11 +89,13 @@ blockquote {
             text-indent: 0;
             hanging-punctuation: first;
         }
-        &::before {
-            content: '“';
-        }
-        &::after {
-            content: '”';
+        > span {
+            &::before {
+                content: '“';
+            }
+            &::after {
+                content: '”';
+            }
         }
     }
 }
