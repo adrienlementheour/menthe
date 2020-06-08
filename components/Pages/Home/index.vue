@@ -241,16 +241,14 @@ export default {
     }
     &::before {
         top: 50%;
-        left: calc(#{var(--gutter)} * -1 - 10px);
-        right: calc(#{var(--gutter)} * -1 - 10px);
+        left: -10px;
+        right: -10px;
         border-top: 1px solid var(--tertiary);
     }
     &::after {
         top: -15px;
-        // right: calc(#{var(--gutter)} * -1);
         right: 0;
         bottom: -10px;
-        // left: calc(#{var(--gutter)} * -1);
         left: 0;
         border: 1px solid var(--tertiary);
         background: var(--primary);
@@ -381,8 +379,8 @@ export default {
 @media (min-width: $tablet) {
     .square-block {
         &::before {
-            left: calc(#{var(--gutter)} * -1 - 22px);
-            right: calc(#{var(--gutter)} * -1 - 22px);
+            left: -22px;
+            right: -22px;
         }
     }
 }
@@ -420,7 +418,7 @@ export default {
             .square-block {
                 &::before {
                     width: 100vw;
-                    left: calc(-22px);
+                    left: -22px;
                     right: auto;
                 }
             }
