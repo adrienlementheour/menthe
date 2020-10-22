@@ -22,6 +22,7 @@
         <div class="column one initial-anim">
             {{ headerData.columnOne }}
             <Routing
+                v-if="headerData.columnOneLink"
                 class="link-arrow framed"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
@@ -31,6 +32,7 @@
         <div class="column two initial-anim">
             {{ headerData.columnTwo }}
             <Routing
+                v-if="headerData.columnTwoLink"
                 class="link-arrow underlined"
                 target="_blank"
                 rel="noopener nofollow noreferrer"
