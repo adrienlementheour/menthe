@@ -64,7 +64,9 @@ export default {
         };
     },
     mounted() {
-        this.displayedFindings = this.display ? this.content.findings.slice(0, this.display) : this.content.findings;
+        this.displayedFindings = this.display
+            ? this.content.findings.reverse().slice(0, this.display)
+            : this.content.findings.reverse();
         this.nbFindings = this.content.findings.length;
     }
 };
